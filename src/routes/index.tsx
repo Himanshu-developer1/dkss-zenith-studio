@@ -201,10 +201,39 @@ function Hero() {
   return (
     <section ref={ref} id="top" className="relative min-h-screen flex items-center overflow-hidden">
       <motion.div style={{ y, opacity }} className="absolute inset-0 -z-10">
-        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-60" width={1920} height={1280} />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,oklch(0.74_0.13_85/0.18),transparent_60%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
+        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-40" width={1920} height={1280} />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background" />
       </motion.div>
+
+      {/* animated cinematic background "video" — drifting gold light blobs */}
+      <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
+        <motion.div
+          className="absolute -top-1/3 -left-1/4 w-[80vw] h-[80vw] rounded-full blur-[120px]"
+          style={{ background: "radial-gradient(circle, oklch(0.74 0.13 85 / 0.28), transparent 60%)" }}
+          animate={{ x: [0, 80, -40, 0], y: [0, 60, -30, 0] }}
+          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-1/4 -right-1/4 w-[70vw] h-[70vw] rounded-full blur-[140px]"
+          style={{ background: "radial-gradient(circle, oklch(0.55 0.18 30 / 0.22), transparent 60%)" }}
+          animate={{ x: [0, -60, 40, 0], y: [0, -40, 50, 0] }}
+          transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-0 left-1/3 w-[60vw] h-[60vw] rounded-full blur-[120px]"
+          style={{ background: "radial-gradient(circle, oklch(0.85 0.16 90 / 0.18), transparent 60%)" }}
+          animate={{ x: [0, 40, -50, 0], y: [0, -30, 20, 0] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+        />
+        {/* scanline / grain overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.07] mix-blend-overlay"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(0deg, rgba(255,255,255,0.6) 0px, rgba(255,255,255,0.6) 1px, transparent 1px, transparent 3px)",
+          }}
+        />
+      </div>
 
       {/* floating particles */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
@@ -227,7 +256,8 @@ function Hero() {
           className="flex items-center gap-3 text-xs tracking-[0.3em] text-gold uppercase mb-8"
         >
           <span className="w-12 h-px bg-gold" />
-          Creative Director · Est. 2021
+          Creative Storyteller • Digital Creator
+          <span className="w-12 h-px bg-gold/40" />
         </motion.div>
 
         <h1 className="font-display font-black leading-[0.95] tracking-tight text-[clamp(2.5rem,8vw,7.5rem)]">
@@ -276,7 +306,7 @@ function Hero() {
             </div>
           </div>
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
-            Crafting visual stories that build powerful brands — for global creators, founders and culture-defining studios.
+            Helping brands grow through high retention reels, performance creatives and premium digital storytelling.
           </p>
         </motion.div>
 
