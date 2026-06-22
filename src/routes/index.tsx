@@ -42,8 +42,15 @@ const DESIGNS = [
 ];
 
 const BRANDS = [
-  "VOGUE", "NIKE", "AUDI", "TANISHQ", "MYNTRA", "RAYMOND",
-  "ZOMATO", "L'ORÉAL", "PUMA", "TATA", "BOAT", "MAMAEARTH",
+  "Barista",
+  "LevelUp Hotels",
+  "House of Chettinad",
+  "Desi Comedy Club",
+  "Sultana",
+  "Ash Cult",
+  "Boho Fest",
+  "Godrej Riverine",
+  "Rishita Developers",
 ];
 
 const SERVICES = [
