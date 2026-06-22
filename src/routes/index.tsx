@@ -8,10 +8,6 @@ import {
 
 import heroBg from "@/assets/hero-bg.jpg";
 import portrait from "@/assets/portrait.jpg";
-import reel1 from "@/assets/reel-1.jpg";
-import reel2 from "@/assets/reel-2.jpg";
-import reel3 from "@/assets/reel-3.jpg";
-import reel4 from "@/assets/reel-4.jpg";
 import d1 from "@/assets/design-1.jpg";
 import d2 from "@/assets/design-2.jpg";
 import d3 from "@/assets/design-3.jpg";
