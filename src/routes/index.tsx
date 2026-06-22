@@ -399,27 +399,41 @@ function DesignShowcase() {
 
 function Brands() {
   return (
-    <section className="py-24 px-6 border-y border-border/50">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-28 px-6 border-y border-border/50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(201,162,39,0.08),_transparent_70%)] pointer-events-none" />
+      <div className="max-w-7xl mx-auto relative">
         <motion.div
-          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-          className="text-center mb-14"
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          <div className="text-xs tracking-[0.3em] text-gold uppercase mb-4">Brands I've Worked With</div>
-          <h3 className="font-display text-3xl md:text-4xl">Trusted by category leaders</h3>
+          <div className="text-xs tracking-[0.4em] text-gold uppercase mb-4">Selected Clients</div>
+          <h3 className="font-display text-4xl md:text-5xl">
+            Brands I Have <span className="text-gradient-gold italic">Worked With</span>
+          </h3>
+          <div className="mx-auto mt-6 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
         </motion.div>
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-px bg-border/40">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-gold/10 rounded-2xl overflow-hidden border border-gold/15">
           {BRANDS.map((b, i) => (
             <motion.div
               key={b}
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-              transition={{ delay: i * 0.04 }}
-              className="bg-background aspect-[3/2] flex items-center justify-center group hover:bg-card transition-all cursor-default"
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              transition={{ delay: i * 0.06, duration: 0.6 }}
+              whileHover={{ y: -2 }}
+              className="bg-background/95 aspect-[5/2] flex items-center justify-center group hover:bg-card transition-all duration-500 cursor-default relative"
             >
-              <span className="font-display tracking-widest text-muted-foreground group-hover:text-gold transition-colors">{b}</span>
+              <span className="absolute inset-x-6 top-4 text-[10px] tracking-[0.3em] text-muted-foreground/40 uppercase opacity-0 group-hover:opacity-100 transition-opacity">
+                Client 0{i + 1}
+              </span>
+              <span className="font-display text-lg md:text-2xl tracking-wide text-foreground/80 group-hover:text-gradient-gold transition-all">
+                {b}
+              </span>
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-0 bg-gold group-hover:w-2/3 transition-all duration-500" />
             </motion.div>
           ))}
         </div>
+        <p className="text-center text-sm text-muted-foreground/70 mt-10 max-w-2xl mx-auto">
+          A curated selection of hospitality, lifestyle, entertainment and real-estate brands I've crafted content and creative direction for.
+        </p>
       </div>
     </section>
   );
