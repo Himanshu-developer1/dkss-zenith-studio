@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import {
   Play, X, ArrowUpRight, Mail, Phone, Instagram, Linkedin, MessageCircle,
-  Film, Palette, Sparkles, Share2, Bot, Target, ArrowDown,
+  Film, Palette, Sparkles, Share2, Bot, Target, ArrowDown, Heart, MessageSquare, Send, Bookmark, MoreHorizontal, Volume2,
 } from "lucide-react";
 
 import heroBg from "@/assets/hero-bg.jpg";
