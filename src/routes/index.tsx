@@ -306,7 +306,7 @@ function Hero() {
             </div>
           </div>
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
-            Crafting visual stories that build powerful brands — for global creators, founders and culture-defining studios.
+            Helping brands grow through high retention reels, performance creatives and premium digital storytelling.
           </p>
         </motion.div>
 
