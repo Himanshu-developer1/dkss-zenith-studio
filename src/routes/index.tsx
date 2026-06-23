@@ -547,84 +547,142 @@ function VideoShowcase() {
           title="Real client work, edited for the scroll."
           sub="A snapshot of reels I've cut, color graded and published — across fashion, hospitality, brand and AI-driven campaigns."
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
           {REELS.map((r, i) => (
-            <motion.button
+            <motion.div
               key={i}
-              onClick={() => setOpen(i)}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              whileHover={{ y: -10 }}
-              className="group relative aspect-[9/16] rounded-[28px] overflow-hidden text-left border border-white/5 shadow-2xl"
+              className="group"
             >
-              {/* Reel background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${r.gradient}`} />
-              <div
-                className="absolute inset-0 opacity-40 mix-blend-screen"
-                style={{
-                  backgroundImage: `radial-gradient(circle at 30% 20%, ${r.accent}55, transparent 60%), radial-gradient(circle at 70% 80%, ${r.accent}33, transparent 55%)`,
-                }}
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(transparent_0,rgba(0,0,0,0.55)_100%)]" />
-
-              {/* Top IG bar */}
-              <div className="absolute top-0 inset-x-0 p-4 flex items-center justify-between text-white/90 text-xs">
-                <div className="flex items-center gap-2">
-                  <Instagram className="w-4 h-4" />
-                  <span className="font-medium tracking-wide">Reels</span>
-                </div>
-                <Volume2 className="w-4 h-4" />
-              </div>
-
-              {/* Center category badge */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-                <div className="text-5xl mb-3 drop-shadow-lg">{r.emoji}</div>
+              <motion.button
+                onClick={() => setOpen(i)}
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 220, damping: 22 }}
+                className="relative w-full aspect-[9/16] rounded-[26px] overflow-hidden text-left border border-white/5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)] group-hover:shadow-[0_30px_80px_-20px_rgba(212,175,55,0.35)] transition-shadow duration-500"
+              >
+                {/* video still — layered scene with bokeh */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${r.gradient}`} />
                 <div
-                  className="text-[10px] tracking-[0.35em] uppercase px-3 py-1 rounded-full border"
-                  style={{ color: r.accent, borderColor: `${r.accent}55`, background: "rgba(0,0,0,0.35)" }}
-                >
-                  {r.category}
+                  className="absolute -top-10 -left-10 w-2/3 h-2/3 rounded-full blur-3xl opacity-70"
+                  style={{ background: `radial-gradient(circle, ${r.accent}AA, transparent 65%)` }}
+                />
+                <div
+                  className="absolute bottom-0 right-0 w-3/4 h-3/4 rounded-full blur-3xl opacity-50"
+                  style={{ background: `radial-gradient(circle, ${r.accent}55, transparent 60%)` }}
+                />
+                {/* simulated subject silhouette */}
+                <div className="absolute inset-x-0 bottom-0 h-3/5">
+                  <div
+                    className="absolute left-1/2 -translate-x-1/2 bottom-[-15%] w-[60%] h-[120%] rounded-[50%] blur-[2px]"
+                    style={{ background: `linear-gradient(180deg, ${r.accent}33 0%, rgba(0,0,0,0.9) 70%)` }}
+                  />
                 </div>
-                <div className="font-display text-2xl mt-4 text-white leading-tight">{r.client}</div>
-              </div>
+                {/* film grain */}
+                <div
+                  className="absolute inset-0 opacity-[0.12] mix-blend-overlay pointer-events-none"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), radial-gradient(rgba(255,255,255,0.4) 1px, transparent 1px)",
+                    backgroundSize: "3px 3px, 5px 5px",
+                  }}
+                />
+                {/* scanlines */}
+                <div
+                  className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none"
+                  style={{
+                    backgroundImage:
+                      "repeating-linear-gradient(0deg, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 1px, transparent 1px, transparent 3px)",
+                  }}
+                />
+                {/* vignette */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.65)_100%)]" />
 
-              {/* Play hover */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/30">
-                <div className="w-16 h-16 rounded-full glass-gold flex items-center justify-center">
-                  <Play className="w-6 h-6 text-gold fill-gold ml-1" />
+                {/* Top status row */}
+                <div className="absolute top-0 inset-x-0 p-3 flex items-center justify-between text-white/90 text-[10px] z-10">
+                  <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-black/45 backdrop-blur-sm border border-white/10">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                    <span className="tracking-widest font-medium">REEL</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-black/45 backdrop-blur-sm border border-white/10">
+                    <Volume2 className="w-3 h-3" />
+                    <span>0:{15 + i}</span>
+                  </div>
                 </div>
-              </div>
 
-              {/* IG right rail */}
-              <div className="absolute right-3 bottom-24 flex flex-col items-center gap-4 text-white">
-                <div className="flex flex-col items-center">
-                  <Heart className="w-6 h-6" />
-                  <span className="text-[10px] mt-0.5">{r.likes}</span>
+                {/* Persistent center play */}
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <motion.div
+                    animate={{ scale: [1, 1.08, 1], opacity: [0.9, 1, 0.9] }}
+                    transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
+                    className="relative"
+                  >
+                    <span className="absolute inset-0 rounded-full border border-white/30 scale-150 group-hover:scale-[1.9] transition-transform duration-500" />
+                    <span className="absolute inset-0 rounded-full border border-white/20 scale-[1.8] group-hover:scale-[2.3] transition-transform duration-700" />
+                    <div className="w-16 h-16 rounded-full bg-white/95 backdrop-blur flex items-center justify-center shadow-[0_10px_40px_rgba(0,0,0,0.5)] group-hover:bg-gold transition-colors">
+                      <div className="w-0 h-0 border-y-[10px] border-y-transparent border-l-[16px] border-l-black ml-1" />
+                    </div>
+                  </motion.div>
                 </div>
-                <div className="flex flex-col items-center">
-                  <MessageSquare className="w-6 h-6" />
-                  <span className="text-[10px] mt-0.5">2.1K</span>
-                </div>
-                <Send className="w-6 h-6" />
-                <Bookmark className="w-6 h-6" />
-                <MoreHorizontal className="w-6 h-6" />
-              </div>
 
-              {/* Bottom caption */}
-              <div className="absolute bottom-0 inset-x-0 p-5 pr-14">
-                <div className="text-xs font-semibold text-white mb-1">@deepak.edits</div>
-                <div className="text-xs text-white/85 line-clamp-2">{r.caption}</div>
-                <div className="text-xs mt-1" style={{ color: r.accent }}>{r.hashtag}</div>
-                <div className="flex items-center gap-1 mt-2 text-[10px] text-white/70">
-                  <Play className="w-3 h-3 fill-current" />
-                  <span>{r.views} views</span>
+                {/* IG right rail */}
+                <div className="absolute right-2.5 bottom-20 flex flex-col items-center gap-3.5 text-white z-10">
+                  <div className="flex flex-col items-center">
+                    <Heart className="w-5 h-5 drop-shadow" />
+                    <span className="text-[9px] mt-0.5">{r.likes}</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <MessageSquare className="w-5 h-5 drop-shadow" />
+                    <span className="text-[9px] mt-0.5">2.1K</span>
+                  </div>
+                  <Send className="w-5 h-5 drop-shadow" />
+                  <Bookmark className="w-5 h-5 drop-shadow" />
+                  <MoreHorizontal className="w-5 h-5 drop-shadow" />
                 </div>
+
+                {/* Bottom caption + handle */}
+                <div className="absolute bottom-0 inset-x-0 p-4 pr-12 z-10 bg-gradient-to-t from-black/85 via-black/40 to-transparent">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gold to-amber-700 border border-white/30" />
+                    <span className="text-[11px] font-semibold text-white">@deepak.edits</span>
+                  </div>
+                  <div className="text-[11px] text-white/85 line-clamp-2 leading-snug">{r.caption}</div>
+                  <div className="flex items-center gap-2 mt-1.5 text-[10px]">
+                    <span style={{ color: r.accent }}>{r.hashtag}</span>
+                    <span className="text-white/50">·</span>
+                    <span className="flex items-center gap-1 text-white/70">
+                      <Play className="w-2.5 h-2.5 fill-current" />
+                      {r.views}
+                    </span>
+                  </div>
+                </div>
+
+                {/* timeline scrubber */}
+                <div className="absolute bottom-0 inset-x-0 h-[3px] bg-white/10 z-20">
+                  <motion.div
+                    initial={{ width: "0%" }}
+                    whileInView={{ width: `${30 + ((i * 13) % 55)}%` }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.4, delay: 0.4 + i * 0.1, ease: "easeOut" }}
+                    className="h-full bg-gold"
+                  />
+                </div>
+              </motion.button>
+
+              {/* Category label below card */}
+              <div className="mt-4 flex items-start justify-between gap-3">
+                <div>
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-gold">{r.category}</div>
+                  <div className="font-display text-lg text-foreground mt-1 leading-tight">{r.client}</div>
+                </div>
+                <ArrowUpRight className="w-4 h-4 text-muted-foreground mt-1 group-hover:text-gold group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
               </div>
-            </motion.button>
+            </motion.div>
           ))}
         </div>
+
       </div>
 
       <AnimatePresence>
