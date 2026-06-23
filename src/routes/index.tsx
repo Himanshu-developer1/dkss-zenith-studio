@@ -326,7 +326,8 @@ function Hero() {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-32 pb-24 w-full">
+      <div className="max-w-7xl mx-auto px-6 pt-32 pb-24 w-full grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="lg:col-span-7">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -364,7 +365,7 @@ function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.6 }}
-          className="mt-10 grid md:grid-cols-2 gap-10 items-end max-w-5xl"
+          className="mt-10 grid md:grid-cols-2 gap-10 items-end"
         >
           <div>
             <div className="text-sm text-muted-foreground mb-2 tracking-widest uppercase">I work as a</div>
@@ -402,7 +403,105 @@ function Hero() {
             Let's Work Together
           </a>
         </motion.div>
+        </div>
+
+        {/* Right: floating reel preview card */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="lg:col-span-5 hidden lg:flex justify-center items-center relative"
+        >
+          <motion.div
+            animate={{ y: [0, -16, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="relative"
+          >
+            {/* gold glow behind */}
+            <div className="absolute -inset-8 rounded-[3rem] bg-gradient-to-br from-gold/30 via-amber-500/10 to-transparent blur-3xl" />
+
+            {/* phone-style reel card */}
+            <div className="relative w-[280px] aspect-[9/16] rounded-[2.2rem] overflow-hidden border border-gold/30 bg-gradient-to-br from-[oklch(0.18_0.02_60)] via-[oklch(0.12_0_0)] to-[oklch(0.08_0_0)] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8),0_0_60px_-15px_rgba(212,175,55,0.35)]">
+              {/* shimmer overlay */}
+              <motion.div
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: "linear-gradient(115deg, transparent 30%, rgba(212,175,55,0.18) 50%, transparent 70%)" }}
+                animate={{ x: ["-100%", "100%"] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.5 }}
+              />
+
+              {/* IG top bar */}
+              <div className="absolute top-0 inset-x-0 p-4 flex items-center justify-between text-white/90 text-xs z-10">
+                <span className="font-medium tracking-wide">Reels</span>
+                <div className="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center">
+                  <Volume2 className="w-3 h-3" />
+                </div>
+              </div>
+
+              {/* center play */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <motion.div
+                  animate={{ scale: [1, 1.08, 1], opacity: [0.85, 1, 0.85] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-16 h-16 rounded-full bg-gold/90 backdrop-blur flex items-center justify-center shadow-[0_0_40px_rgba(212,175,55,0.6)]"
+                >
+                  <div className="w-0 h-0 border-y-[10px] border-y-transparent border-l-[16px] border-l-primary-foreground ml-1" />
+                </motion.div>
+              </div>
+
+              {/* right rail */}
+              <div className="absolute right-3 bottom-24 flex flex-col items-center gap-4 text-white/90 z-10">
+                <div className="flex flex-col items-center gap-1">
+                  <Heart className="w-5 h-5" />
+                  <span className="text-[10px]">128K</span>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <MessageSquare className="w-5 h-5" />
+                  <span className="text-[10px]">2.4K</span>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <Send className="w-5 h-5" />
+                  <span className="text-[10px]">9.1K</span>
+                </div>
+                <Bookmark className="w-5 h-5" />
+              </div>
+
+              {/* caption */}
+              <div className="absolute bottom-0 inset-x-0 p-4 pr-16 z-10 bg-gradient-to-t from-black/80 to-transparent">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-gold to-amber-700 border border-gold/60" />
+                  <span className="text-xs text-white font-medium">@deepak.surya</span>
+                  <span className="text-[10px] text-gold border border-gold/60 rounded-full px-2 py-px">Follow</span>
+                </div>
+                <p className="text-[11px] text-white/85 leading-snug">
+                  Crafting the cut · <span className="text-gold">#ReelEdit</span> <span className="text-gold">#BrandFilm</span>
+                </p>
+              </div>
+            </div>
+
+            {/* floating stat chip */}
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              className="absolute -left-10 top-12 glass-gold rounded-2xl px-4 py-3 backdrop-blur-xl border border-gold/30"
+            >
+              <div className="text-[10px] tracking-[0.2em] text-gold uppercase">Avg. Reach</div>
+              <div className="font-display text-2xl text-gradient-gold">2.4M+</div>
+            </motion.div>
+
+            {/* floating badge */}
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute -right-8 bottom-20 glass rounded-2xl px-4 py-3 backdrop-blur-xl border border-foreground/10"
+            >
+              <div className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase">Now editing</div>
+              <div className="text-sm text-foreground font-medium">Barista × Winter</div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
+
 
       <motion.div
         initial={{ opacity: 0 }}
