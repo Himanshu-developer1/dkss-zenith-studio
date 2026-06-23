@@ -586,27 +586,117 @@ function DesignShowcase() {
     <section id="design" className="relative py-32 px-6 bg-[oklch(0.11_0_0)]">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
-          eyebrow="Creative Design Projects"
-          title="Brand visuals crafted for modern digital businesses."
-          sub="Editorial design systems, campaign creatives and visual identities."
+          eyebrow="Graphic Design Portfolio"
+          title="Real client creatives, crafted for scroll-stopping feeds."
+          sub="Posters, menus, lookbooks, brand systems and performance creatives — pulled straight from live client work."
         />
-        <div className="columns-2 md:columns-3 gap-5 [column-fill:_balance]">
-          {DESIGNS.map((d, i) => (
-            <motion.button
-              key={i}
-              onClick={() => setOpen(i)}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: (i % 3) * 0.1 }}
-              className="group block w-full mb-5 break-inside-avoid rounded-2xl overflow-hidden bg-card relative"
-            >
-              <img src={d.src} alt="" loading="lazy" className={`w-full object-cover transition-transform duration-700 group-hover:scale-105 ${d.h === "tall" ? "aspect-[3/4]" : d.h === "med" ? "aspect-square" : "aspect-[4/3]"}`} />
-              <div className="absolute inset-0 bg-gold/0 group-hover:bg-black/40 transition-all flex items-center justify-center">
-                <ArrowUpRight className="w-8 h-8 text-gold opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-            </motion.button>
-          ))}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 [column-fill:_balance]">
+          {DESIGNS.map((d, i) => {
+            const aspect = d.h === "tall" ? "aspect-[3/4]" : d.h === "med" ? "aspect-square" : "aspect-[4/5]";
+            return (
+              <motion.button
+                key={i}
+                onClick={() => setOpen(i)}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
+                className="group block w-full mb-5 break-inside-avoid rounded-2xl overflow-hidden bg-card relative text-left border border-white/5 hover:border-gold/40 transition-colors"
+              >
+                <div className={`relative w-full ${aspect} bg-gradient-to-br ${d.palette} overflow-hidden`}>
+                  {/* texture */}
+                  <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle at 20% 20%, white 1px, transparent 1px), radial-gradient(circle at 80% 70%, white 1px, transparent 1px)", backgroundSize: "24px 24px, 32px 32px" }} />
+                  {/* accent glow */}
+                  <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full blur-3xl opacity-40" style={{ background: d.accent }} />
+
+                  {/* mock creative layout */}
+                  <div className="relative h-full w-full p-5 flex flex-col justify-between">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] tracking-[0.2em] uppercase text-white/60">{d.tag}</span>
+                      <span className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-[10px] text-white/70">0{i + 1}</span>
+                    </div>
+
+                    <div className="flex-1 flex items-center justify-center my-3">
+                      {d.layout === "poster" && (
+                        <div className="text-center">
+                          <div className="text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: d.accent }}>presents</div>
+                          <div className="font-serif italic text-2xl md:text-3xl leading-tight text-white">{d.title.split(" ").slice(0, 2).join(" ")}</div>
+                          <div className="font-serif italic text-2xl md:text-3xl leading-tight" style={{ color: d.accent }}>{d.title.split(" ").slice(2).join(" ")}</div>
+                          <div className="w-12 h-px bg-white/30 mx-auto mt-3" />
+                        </div>
+                      )}
+                      {d.layout === "menu" && (
+                        <div className="w-full">
+                          <div className="font-serif text-xl text-white mb-3 text-center">{d.title}</div>
+                          {["Banana Leaf · 320", "Coastal Catch · 480", "Chettinad Special · 540"].map((row, idx) => (
+                            <div key={idx} className="flex justify-between text-[11px] text-white/70 border-b border-white/10 py-1.5">
+                              <span>{row.split(" · ")[0]}</span>
+                              <span style={{ color: d.accent }}>₹{row.split(" · ")[1]}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      {d.layout === "fashion" && (
+                        <div className="text-center">
+                          <div className="text-[9px] tracking-[0.4em] uppercase text-white/50">FW · 2024</div>
+                          <div className="font-serif text-3xl md:text-4xl text-white mt-1">{d.client.split(" ")[0]}</div>
+                          <div className="text-[10px] tracking-[0.3em] uppercase mt-2" style={{ color: d.accent }}>{d.title}</div>
+                        </div>
+                      )}
+                      {d.layout === "brand" && (
+                        <div className="text-center">
+                          <div className="w-14 h-14 mx-auto rounded-full border-2 flex items-center justify-center mb-2" style={{ borderColor: d.accent }}>
+                            <span className="font-serif text-xl" style={{ color: d.accent }}>L</span>
+                          </div>
+                          <div className="text-[10px] tracking-[0.4em] uppercase text-white">LEVELUP</div>
+                          <div className="text-[9px] tracking-[0.3em] uppercase text-white/50 mt-1">HOTELS · EST 2021</div>
+                        </div>
+                      )}
+                      {d.layout === "carousel" && (
+                        <div className="w-full">
+                          <div className="text-[9px] tracking-[0.3em] uppercase text-white/50 mb-2">SWIPE →</div>
+                          <div className="font-serif text-2xl text-white leading-tight">{d.title}</div>
+                          <div className="flex gap-1 mt-3">
+                            {[0, 1, 2, 3, 4].map((s) => (
+                              <div key={s} className={`h-1 flex-1 rounded-full ${s === 0 ? "" : "bg-white/20"}`} style={s === 0 ? { background: d.accent } : {}} />
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      {d.layout === "ad" && (
+                        <div>
+                          <div className="text-[9px] tracking-[0.3em] uppercase mb-2" style={{ color: d.accent }}>NOW LAUNCHING</div>
+                          <div className="font-serif text-2xl text-white leading-tight">{d.title}</div>
+                          <div className="mt-3 inline-block px-3 py-1.5 text-[10px] tracking-[0.2em] uppercase border" style={{ borderColor: d.accent, color: d.accent }}>Book a visit →</div>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="flex items-end justify-between">
+                      <div>
+                        <div className="text-[9px] tracking-[0.3em] uppercase text-white/40">Client</div>
+                        <div className="text-xs text-white/80">{d.client}</div>
+                      </div>
+                      <div className="w-6 h-6 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
+                        <ArrowUpRight className="w-3 h-3 text-white/80" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* hover overlay */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all" />
+                </div>
+
+                <div className="px-4 py-3 flex items-center justify-between bg-card">
+                  <div>
+                    <div className="text-[10px] tracking-[0.25em] uppercase text-gold/80">{d.category}</div>
+                    <div className="text-xs text-foreground/70 mt-0.5">{d.title}</div>
+                  </div>
+                  <span className="text-[10px] text-muted-foreground">Save</span>
+                </div>
+              </motion.button>
+            );
+          })}
         </div>
       </div>
 
@@ -622,11 +712,23 @@ function DesignShowcase() {
             <button onClick={() => setOpen(null)} className="absolute top-6 right-6 w-12 h-12 glass rounded-full flex items-center justify-center">
               <X className="w-5 h-5" />
             </button>
-            <motion.img
-              initial={{ scale: 0.9 }} animate={{ scale: 1 }} exit={{ scale: 0.9 }}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              src={DESIGNS[open].src} alt="" className="max-h-[90vh] max-w-full rounded-xl object-contain"
-            />
+              className={`relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br ${DESIGNS[open].palette} border border-white/10 p-8 flex flex-col justify-between`}
+            >
+              <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl opacity-40" style={{ background: DESIGNS[open].accent }} />
+              <div className="relative">
+                <div className="text-[10px] tracking-[0.3em] uppercase text-white/60">{DESIGNS[open].tag}</div>
+                <div className="font-serif italic text-4xl text-white mt-4 leading-tight">{DESIGNS[open].title}</div>
+              </div>
+              <div className="relative">
+                <div className="text-[10px] tracking-[0.3em] uppercase text-white/40">Client</div>
+                <div className="text-lg text-white">{DESIGNS[open].client}</div>
+                <div className="mt-3 text-[10px] tracking-[0.25em] uppercase" style={{ color: DESIGNS[open].accent }}>{DESIGNS[open].category}</div>
+                <div className="mt-4 text-[11px] text-white/50">Full case study available on request.</div>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
