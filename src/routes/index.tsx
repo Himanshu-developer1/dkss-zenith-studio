@@ -199,10 +199,62 @@ const SERVICES = [
 ];
 
 const EXPERIENCE = [
-  { company: "Gamoft Consultancy", role: "Creative Lead", year: "2024 — Present", desc: "Leading brand visual systems and AI-powered campaigns for global clients." },
-  { company: "Love Chahal Digital Marketing", role: "Senior Video Editor", year: "2023 — 2024", desc: "Crafted performance reels and brand films generating multi-million views." },
-  { company: "Reerocket", role: "Content Designer", year: "2022 — 2023", desc: "Built reel-first content strategies for D2C brands across India." },
-  { company: "Rahe Solution", role: "Graphic Designer", year: "2021 — 2022", desc: "Designed identities and social systems for emerging digital businesses." },
+  {
+    company: "Gamoft Consultancy",
+    role: "Creative Lead — Reels, Brand & AI Content",
+    year: "2024 — Present",
+    location: "Remote · India",
+    type: "Full-time",
+    desc: "Leading the creative pod for D2C and lifestyle brands. Owning the reel pipeline end-to-end — concept, scripting, edit, motion and AI-assisted post — alongside performance creatives for paid social.",
+    highlights: [
+      "Built a reel system that lifted average watch-through by 38%",
+      "Shipped AI generated ad variants for 6+ brands across fashion, F&B and real estate",
+      "Mentor a team of 3 editors and 2 designers on retention-first storytelling",
+    ],
+    stack: ["Premiere Pro", "After Effects", "Runway", "Midjourney"],
+  },
+  {
+    company: "Love Chahal Digital Marketing",
+    role: "Senior Video Editor & Content Designer",
+    year: "2023 — 2024",
+    location: "Lucknow, India",
+    type: "Agency",
+    desc: "Anchored the reel and short-form video desk for personal brands, founders and lifestyle businesses. Built repeatable hook frameworks and on-brand edit templates that scaled across the roster.",
+    highlights: [
+      "Edited 400+ reels with several crossing 1M+ organic views",
+      "Designed motion identity kits for 12 personal brands",
+      "Cut turnaround from brief to publish-ready reel down to under 24 hours",
+    ],
+    stack: ["Premiere Pro", "After Effects", "Photoshop", "CapCut"],
+  },
+  {
+    company: "Reerocket",
+    role: "Content Designer & Reel Strategist",
+    year: "2022 — 2023",
+    location: "Remote",
+    type: "Creator studio",
+    desc: "Worked with founders and creators to build reel-first content strategies for Instagram and YouTube Shorts. Translated content pillars into weekly shot lists, edit decks and post-production SOPs.",
+    highlights: [
+      "Helped 9 creator accounts cross 100K followers within a launch quarter",
+      "Built a hook + B-roll library used across the entire client roster",
+      "Defined a tone and pacing guide adopted by the in-house edit team",
+    ],
+    stack: ["Premiere Pro", "Photoshop", "Figma", "Notion"],
+  },
+  {
+    company: "Rahe Solution",
+    role: "Graphic Designer (International — Texas, USA)",
+    year: "2021 — 2022",
+    location: "Texas, USA · Remote",
+    type: "International client",
+    desc: "First international engagement — designed social systems, ad creatives and brand collateral for US-based small businesses across real estate, wellness and home services. Owned the full design pipeline from brief to delivery in a different time zone.",
+    highlights: [
+      "Delivered 300+ social and ad creatives across 15+ US brand accounts",
+      "Built a reusable Photoshop and Illustrator template library for the team",
+      "Set up a feedback and revision workflow that cut iterations by half",
+    ],
+    stack: ["Photoshop", "Illustrator", "Canva", "Figma"],
+  },
 ];
 
 const TOOLS = [
@@ -981,7 +1033,7 @@ function Experience() {
         <SectionHeader
           eyebrow="The Journey"
           title="A timeline of craft and collaboration."
-          sub="Four years of building visual brand systems for ambitious teams."
+          sub="My journey working with agencies, brands and international clients across creative production and digital marketing."
         />
         <div className="relative">
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/40 to-transparent" />
@@ -994,13 +1046,36 @@ function Experience() {
               transition={{ duration: 0.7 }}
               className={`relative mb-12 md:mb-20 md:w-1/2 ${i % 2 === 0 ? "md:pr-12" : "md:ml-auto md:pl-12"}`}
             >
-              <div className="absolute left-4 md:left-auto top-6 w-3 h-3 rounded-full bg-gold shadow-[0_0_20px_var(--gold)] -translate-x-1/2 md:translate-x-0"
+              <div className="absolute left-4 md:left-auto top-8 w-3 h-3 rounded-full bg-gold shadow-[0_0_20px_var(--gold)] -translate-x-1/2 md:translate-x-0"
                 style={i % 2 === 0 ? { right: "-6px" } : { left: "-6px" }} />
-              <div className="ml-12 md:ml-0 p-7 rounded-2xl glass group hover:border-gold/30 transition-all">
-                <div className="text-xs tracking-widest text-gold uppercase">{e.year}</div>
-                <div className="font-display text-2xl mt-2">{e.company}</div>
-                <div className="text-sm text-muted-foreground mt-1">{e.role}</div>
-                <p className="text-sm text-muted-foreground/80 mt-4 leading-relaxed">{e.desc}</p>
+              <div className="ml-12 md:ml-0 p-7 md:p-8 rounded-2xl glass group hover:border-gold/40 transition-all relative overflow-hidden">
+                <div className="absolute -top-20 -right-20 w-48 h-48 rounded-full bg-gold/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="flex items-center justify-between gap-3 relative">
+                  <div className="text-[10px] tracking-[0.3em] text-gold uppercase">{e.year}</div>
+                  <div className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground/70 px-2 py-1 rounded-full border border-border/60">
+                    {e.type}
+                  </div>
+                </div>
+                <div className="font-display text-2xl md:text-3xl mt-3 leading-tight">{e.company}</div>
+                <div className="text-sm text-foreground/80 mt-1">{e.role}</div>
+                <div className="text-xs text-muted-foreground/70 mt-1 tracking-wide">{e.location}</div>
+                <div className="h-px w-12 bg-gold/40 my-5" />
+                <p className="text-sm text-muted-foreground leading-relaxed">{e.desc}</p>
+                <ul className="mt-5 space-y-2">
+                  {e.highlights.map((h) => (
+                    <li key={h} className="flex gap-3 text-sm text-muted-foreground/90 leading-relaxed">
+                      <span className="mt-2 h-1 w-1 rounded-full bg-gold flex-shrink-0" />
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {e.stack.map((s) => (
+                    <span key={s} className="text-[10px] tracking-[0.2em] uppercase px-2.5 py-1 rounded-full border border-gold/20 text-gold/90 bg-gold/[0.03]">
+                      {s}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
