@@ -1143,10 +1143,6 @@ function Contact() {
             transition={{ delay: 0.2 }}
             className="space-y-3"
           >
-            <div className="relative rounded-2xl overflow-hidden mb-6 aspect-[4/5] max-w-sm">
-              <img src={portrait} alt="Deepak Kumar Singh Surya" className="w-full h-full object-cover" loading="lazy" width={1024} height={1280} />
-              <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
-            </div>
             {links.map((l) => {
               const Icon = l.icon;
               return (
