@@ -269,7 +269,6 @@ function Index() {
       <Hero />
       <VideoShowcase />
       <DesignShowcase />
-      <CreatorIdentity />
       <Brands />
       <Services />
       <Experience />
@@ -946,94 +945,6 @@ function DesignShowcase() {
   );
 }
 
-function CreatorIdentity() {
-  const pillars = [
-    { k: "Storytelling", v: "Narrative arcs built for the 3-second scroll." },
-    { k: "Video Editing", v: "Frame-precise cuts, sound design and pacing." },
-    { k: "AI Creativity", v: "Runway, Midjourney and custom workflows." },
-    { k: "Digital Production", v: "End-to-end content systems for brands." },
-  ];
-  return (
-    <section id="identity" className="relative py-32 px-6 overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,oklch(0.74_0.13_85/0.10),transparent_60%)]" />
-      </div>
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="lg:col-span-5 relative"
-        >
-          <div className="relative aspect-[4/5] max-w-md mx-auto lg:mx-0">
-            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-gold/30 via-transparent to-gold/10 blur-2xl opacity-60" />
-            <div className="absolute -top-3 -left-3 w-24 h-24 border-t border-l border-gold/60 rounded-tl-2xl" />
-            <div className="absolute -bottom-3 -right-3 w-24 h-24 border-b border-r border-gold/60 rounded-br-2xl" />
-            <div className="relative h-full w-full rounded-2xl overflow-hidden border border-gold/20 shadow-[var(--shadow-luxe)]">
-              <img
-                src={portrait}
-                alt="Deepak Kumar Singh Surya — portrait"
-                className="w-full h-full object-cover grayscale-[20%] contrast-110"
-                loading="lazy" width={1024} height={1280}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-background/20" />
-              <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
-                <div>
-                  <div className="text-[10px] tracking-[0.35em] text-gold uppercase">Founder</div>
-                  <div className="font-display text-xl text-foreground leading-tight">Deepak Kumar<br/>Singh Surya</div>
-                </div>
-                <div className="text-right text-[10px] tracking-[0.3em] text-muted-foreground uppercase">
-                  Est<br/><span className="text-gold">2021</span>
-                </div>
-              </div>
-            </div>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="absolute -bottom-6 -left-6 glass-gold rounded-xl px-4 py-3 hidden md:block"
-            >
-              <div className="text-[10px] tracking-[0.3em] text-gold uppercase">Now editing</div>
-              <div className="text-sm font-medium">Barista × Winter Campaign</div>
-            </motion.div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.15 }}
-          className="lg:col-span-7"
-        >
-          <div className="text-xs tracking-[0.35em] text-gold uppercase mb-5">The Creator</div>
-          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-tight">
-            The creator <span className="italic text-gradient-gold">behind</span><br/>the frame.
-          </h2>
-          <div className="mt-8 space-y-5 max-w-xl text-muted-foreground font-light text-lg leading-relaxed">
-            <p>
-              I'm Deepak — a storyteller working at the intersection of <span className="text-foreground">cinematic video editing</span>, <span className="text-foreground">AI-driven creativity</span> and <span className="text-foreground">digital production</span>. Every frame I cut is built to hold attention, shape emotion and move a brand forward.
-            </p>
-            <p>
-              For the last four years I've helped founders, agencies and lifestyle brands turn raw footage and rough ideas into reels, campaigns and creative systems that actually convert — quietly premium, retention-first, made for the modern feed.
-            </p>
-          </div>
-
-          <div className="mt-10 grid sm:grid-cols-2 gap-4 max-w-xl">
-            {pillars.map((p) => (
-              <div key={p.k} className="glass rounded-xl p-5 hover:border-gold/30 transition-all">
-                <div className="text-[10px] tracking-[0.3em] text-gold uppercase mb-2">{p.k}</div>
-                <div className="text-sm text-foreground/90 leading-snug">{p.v}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gold" /> Based in India · Working worldwide</div>
-            <div className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gold" /> Selective retainers · 2026 open</div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
 function Brands() {
   return (
     <section className="py-28 px-6 border-y border-border/50 relative overflow-hidden">
@@ -1231,6 +1142,10 @@ function Contact() {
             transition={{ delay: 0.2 }}
             className="space-y-3"
           >
+            <div className="relative rounded-2xl overflow-hidden mb-6 aspect-[4/5] max-w-sm">
+              <img src={portrait} alt="Deepak Kumar Singh Surya" className="w-full h-full object-cover" loading="lazy" width={1024} height={1280} />
+              <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
+            </div>
             {links.map((l) => {
               const Icon = l.icon;
               return (
