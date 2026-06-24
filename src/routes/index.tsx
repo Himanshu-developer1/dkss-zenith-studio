@@ -269,6 +269,7 @@ function Index() {
       <Hero />
       <VideoShowcase />
       <DesignShowcase />
+      <CreatorIdentity />
       <Brands />
       <Services />
       <Experience />
