@@ -777,18 +777,18 @@ function VideoShowcase() {
                 }}
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">
-                <div className="text-7xl mb-6">{REELS[open].emoji}</div>
+                <div className="text-7xl mb-6">{REELS[open].icon}</div>
                 <div
                   className="text-xs tracking-[0.4em] uppercase px-4 py-1.5 rounded-full border"
                   style={{ color: REELS[open].accent, borderColor: `${REELS[open].accent}55` }}
                 >
                   {REELS[open].category}
                 </div>
-                <div className="font-display text-4xl mt-6 text-white">{REELS[open].client}</div>
+                <div className="font-display text-4xl mt-6 text-white">{REELS[open].title}</div>
                 <div className="text-sm text-white/70 mt-3 max-w-xs">{REELS[open].caption}</div>
-                <div className="flex items-center gap-6 mt-8 text-white/80 text-sm">
-                  <div className="flex items-center gap-2"><Play className="w-4 h-4 fill-current" />{REELS[open].views}</div>
-                  <div className="flex items-center gap-2"><Heart className="w-4 h-4" />{REELS[open].likes}</div>
+                <div className="mt-8 inline-flex items-center gap-2 text-white/70 text-xs tracking-[0.3em] uppercase">
+                  <Play className="w-3.5 h-3.5 fill-current text-gold" />
+                  Sample portfolio reel
                 </div>
               </div>
               <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
