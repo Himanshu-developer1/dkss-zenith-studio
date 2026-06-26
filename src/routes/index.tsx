@@ -1191,9 +1191,23 @@ function Contact() {
 function Footer() {
   return (
     <footer className="border-t border-border/50 py-10 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <div>© {new Date().getFullYear()} Deepak Kumar Singh Surya. All rights reserved.</div>
-        <div className="font-display tracking-wider">Crafted with intention<span className="text-gold">.</span></div>
+      <div className="max-w-7xl mx-auto flex flex-col gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <div>© {new Date().getFullYear()} Deepak Kumar Singh Surya. All rights reserved.</div>
+          <div className="font-display tracking-wider">Crafted with intention<span className="text-gold">.</span></div>
+        </div>
+        <div className="pt-5 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-2 text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60">
+          <div>
+            Website Designed &amp; Developed by{" "}
+            <span className="text-foreground/80 tracking-wide normal-case font-medium">Himanshu Pawar</span>
+          </div>
+          <a
+            href="mailto:pawarhp15@gmail.com"
+            className="tracking-wide normal-case text-muted-foreground/70 hover:text-gold transition-colors"
+          >
+            pawarhp15@gmail.com
+          </a>
+        </div>
       </div>
     </footer>
   );
