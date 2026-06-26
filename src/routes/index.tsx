@@ -715,36 +715,13 @@ function VideoShowcase() {
                   </motion.div>
                 </div>
 
-                {/* IG right rail */}
-                <div className="absolute right-2.5 bottom-20 flex flex-col items-center gap-3.5 text-white z-10">
-                  <div className="flex flex-col items-center">
-                    <Heart className="w-5 h-5 drop-shadow" />
-                    <span className="text-[9px] mt-0.5">{r.likes}</span>
+                {/* Bottom caption — clean, no IG UI */}
+                <div className="absolute bottom-0 inset-x-0 p-4 z-10 bg-gradient-to-t from-black/85 via-black/40 to-transparent">
+                  <div className="text-[10px] tracking-[0.3em] uppercase mb-1.5" style={{ color: r.accent }}>
+                    {r.category}
                   </div>
-                  <div className="flex flex-col items-center">
-                    <MessageSquare className="w-5 h-5 drop-shadow" />
-                    <span className="text-[9px] mt-0.5">2.1K</span>
-                  </div>
-                  <Send className="w-5 h-5 drop-shadow" />
-                  <Bookmark className="w-5 h-5 drop-shadow" />
-                  <MoreHorizontal className="w-5 h-5 drop-shadow" />
-                </div>
-
-                {/* Bottom caption + handle */}
-                <div className="absolute bottom-0 inset-x-0 p-4 pr-12 z-10 bg-gradient-to-t from-black/85 via-black/40 to-transparent">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gold to-amber-700 border border-white/30" />
-                    <span className="text-[11px] font-semibold text-white">@deepak.edits</span>
-                  </div>
-                  <div className="text-[11px] text-white/85 line-clamp-2 leading-snug">{r.caption}</div>
-                  <div className="flex items-center gap-2 mt-1.5 text-[10px]">
-                    <span style={{ color: r.accent }}>{r.hashtag}</span>
-                    <span className="text-white/50">·</span>
-                    <span className="flex items-center gap-1 text-white/70">
-                      <Play className="w-2.5 h-2.5 fill-current" />
-                      {r.views}
-                    </span>
-                  </div>
+                  <div className="font-display text-lg text-white leading-tight">{r.title}</div>
+                  <div className="text-[11px] text-white/70 line-clamp-2 leading-snug mt-1.5">{r.caption}</div>
                 </div>
 
                 {/* timeline scrubber */}
