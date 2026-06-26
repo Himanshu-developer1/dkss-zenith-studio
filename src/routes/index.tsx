@@ -160,16 +160,16 @@ const DESIGNS = [
   },
 ];
 
-const BRANDS = [
-  "Barista",
-  "LevelUp Hotels",
-  "House of Chettinad",
-  "Desi Comedy Club",
-  "Sultana",
-  "Ash Cult",
-  "Boho Fest",
-  "Godrej Riverine",
-  "Rishita Developers",
+const BRANDS: { name: string; sub?: string; className: string }[] = [
+  { name: "Barista", className: "font-display italic text-3xl tracking-tight" },
+  { name: "LEVELUP", sub: "HOTELS", className: "font-display tracking-[0.35em] text-xl font-semibold" },
+  { name: "House of Chettinad", className: "font-display text-2xl tracking-wide" },
+  { name: "DESI COMEDY", sub: "CLUB", className: "font-mono tracking-[0.25em] text-base font-bold" },
+  { name: "Sultana", className: "font-display italic text-3xl" },
+  { name: "ASH CULT", className: "font-display tracking-[0.5em] text-xl font-black" },
+  { name: "Boho Fest", className: "font-display italic text-2xl" },
+  { name: "GODREJ", sub: "RIVERINE", className: "font-display tracking-[0.3em] text-xl" },
+  { name: "Rishita", sub: "DEVELOPERS", className: "font-display text-2xl tracking-wide" },
 ];
 
 const SERVICES = [
