@@ -808,9 +808,9 @@ function DesignShowcase() {
     <section id="design" className="relative py-32 px-6 bg-[oklch(0.11_0_0)]">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
-          eyebrow="Graphic Design Portfolio"
-          title="Real client creatives, crafted for scroll-stopping feeds."
-          sub="Posters, menus, lookbooks, brand systems and performance creatives — pulled straight from live client work."
+          eyebrow="Creative Design Work"
+          title="Posters, brand systems & social creatives."
+          sub="Poster design, brand design and social media creatives — crafted for scroll-stopping feeds and editorial print drops."
         />
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 [column-fill:_balance]">
           {DESIGNS.map((d, i) => {
