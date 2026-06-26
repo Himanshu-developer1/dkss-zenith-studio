@@ -976,18 +976,23 @@ function Brands() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-gold/10 rounded-2xl overflow-hidden border border-gold/15">
           {BRANDS.map((b, i) => (
             <motion.div
-              key={b}
+              key={b.name}
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ delay: i * 0.06, duration: 0.6 }}
               whileHover={{ y: -2 }}
-              className="bg-background/95 aspect-[5/2] flex items-center justify-center group hover:bg-card transition-all duration-500 cursor-default relative"
+              className="bg-background/95 aspect-[5/2] flex items-center justify-center group hover:bg-card transition-all duration-500 cursor-default relative px-4"
             >
               <span className="absolute inset-x-6 top-4 text-[10px] tracking-[0.3em] text-muted-foreground/40 uppercase opacity-0 group-hover:opacity-100 transition-opacity">
                 Client 0{i + 1}
               </span>
-              <span className="font-display text-lg md:text-2xl tracking-wide text-foreground/80 group-hover:text-gradient-gold transition-all">
-                {b}
-              </span>
+              <div className="flex flex-col items-center justify-center gap-1 text-center text-foreground/45 grayscale group-hover:text-gold group-hover:grayscale-0 transition-all duration-500">
+                <span className={`${b.className} leading-none`}>{b.name}</span>
+                {b.sub && (
+                  <span className="text-[9px] tracking-[0.45em] uppercase text-foreground/35 group-hover:text-gold/80 transition-colors">
+                    {b.sub}
+                  </span>
+                )}
+              </div>
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-0 bg-gold group-hover:w-2/3 transition-all duration-500" />
             </motion.div>
           ))}
