@@ -3,7 +3,8 @@ import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import {
   Play, X, ArrowUpRight, Mail, Phone, Instagram, Linkedin, MessageCircle,
-  Film, Palette, Sparkles, Share2, Bot, Target, ArrowDown, Heart, MessageSquare, Send, Bookmark, MoreHorizontal, Volume2,
+  Film, Palette, Sparkles, Share2, Bot, Target, ArrowDown, Volume2,
+  Scissors, Type as TypeIcon, Music2, Layers, Wand2,
 } from "lucide-react";
 
 import heroBg from "@/assets/hero-bg.jpg";
@@ -17,70 +18,52 @@ const ROLES = ["Video Editor", "Graphic Designer", "Social Media Manager", "Crea
 
 const REELS = [
   {
-    category: "Fashion Reel",
-    client: "Sultana × Ash Cult",
-    caption: "Editorial drop — runway cuts, beat-matched transitions",
-    views: "1.2M",
-    likes: "84.3K",
-    hashtag: "#FashionReel",
+    category: "Real Estate Videos",
+    title: "Skyline Residences",
+    caption: "Cinematic walkthrough · drone establishing · interior cuts",
+    gradient: "from-[#0f1a2e] via-[#142436] to-[#0b0b0b]",
+    accent: "#9DB4D4",
+    icon: "🏙",
+  },
+  {
+    category: "Fashion Brand Ads",
+    title: "Editorial Drop",
+    caption: "Runway cuts · beat-matched transitions · lookbook film",
     gradient: "from-[#2a1810] via-[#3d1f1a] to-[#0b0b0b]",
     accent: "#E8B4A0",
-    emoji: "👗",
+    icon: "👗",
   },
   {
-    category: "Brand Advertisement",
-    client: "Godrej Riverine",
-    caption: "Launch film — cinematic establishing shots, voiceover edit",
-    views: "847K",
-    likes: "62.1K",
-    hashtag: "#BrandFilm",
-    gradient: "from-[#1a1f2e] via-[#0f1a2e] to-[#0b0b0b]",
-    accent: "#9DB4D4",
-    emoji: "🏙",
+    category: "Organic Farming Videos",
+    title: "Field to Harvest",
+    caption: "Slow-mo b-roll · earthy color grade · narrative voiceover",
+    gradient: "from-[#1a2410] via-[#243018] to-[#0b0b0b]",
+    accent: "#B8D48A",
+    icon: "🌾",
   },
   {
-    category: "Product Reel",
-    client: "Boho Fest Merch",
-    caption: "Hero product spotlight — macro shots, kinetic text",
-    views: "534K",
-    likes: "41.7K",
-    hashtag: "#ProductDrop",
-    gradient: "from-[#2a1a2e] via-[#1f1430] to-[#0b0b0b]",
-    accent: "#C9A227",
-    emoji: "✨",
-  },
-  {
-    category: "Restaurant Reel",
-    client: "House of Chettinad",
-    caption: "Plating sequence — slow-mo pours, ASMR cuts",
-    views: "2.1M",
-    likes: "156K",
-    hashtag: "#FoodReel",
+    category: "Restaurant / Cafe Ads",
+    title: "House Specials",
+    caption: "Plating sequence · slow-mo pours · ASMR food cuts",
     gradient: "from-[#2e1a0f] via-[#3d2410] to-[#0b0b0b]",
     accent: "#E8B547",
-    emoji: "🍛",
+    icon: "🍽",
   },
   {
-    category: "Social Media Campaign",
-    client: "Barista India",
-    caption: "Weekly content series — 30 reels, unified visual system",
-    views: "3.4M",
-    likes: "241K",
-    hashtag: "#CampaignEdit",
-    gradient: "from-[#1f2a1a] via-[#142010] to-[#0b0b0b]",
-    accent: "#B8D4A0",
-    emoji: "☕",
+    category: "Product Commercials",
+    title: "Hero Drop Film",
+    caption: "Macro shots · kinetic type · studio-lit product edit",
+    gradient: "from-[#2a1a2e] via-[#1f1430] to-[#0b0b0b]",
+    accent: "#C9A227",
+    icon: "✨",
   },
   {
-    category: "AI Generated Reel",
-    client: "Desi Comedy Club",
-    caption: "Sora + Midjourney pipeline — surreal sketch promo",
-    views: "1.8M",
-    likes: "203K",
-    hashtag: "#AIReel",
+    category: "AI Generated Ads",
+    title: "Generative Spot",
+    caption: "Sora + Runway pipeline · surreal scene build · neural grade",
     gradient: "from-[#1a1a2e] via-[#2a1f3d] to-[#0b0b0b]",
     accent: "#D4A0E8",
-    emoji: "🤖",
+    icon: "🤖",
   },
 ];
 
@@ -177,16 +160,16 @@ const DESIGNS = [
   },
 ];
 
-const BRANDS = [
-  "Barista",
-  "LevelUp Hotels",
-  "House of Chettinad",
-  "Desi Comedy Club",
-  "Sultana",
-  "Ash Cult",
-  "Boho Fest",
-  "Godrej Riverine",
-  "Rishita Developers",
+const BRANDS: { name: string; sub?: string; className: string }[] = [
+  { name: "Barista", className: "font-display italic text-3xl tracking-tight" },
+  { name: "LEVELUP", sub: "HOTELS", className: "font-display tracking-[0.35em] text-xl font-semibold" },
+  { name: "House of Chettinad", className: "font-display text-2xl tracking-wide" },
+  { name: "DESI COMEDY", sub: "CLUB", className: "font-mono tracking-[0.25em] text-base font-bold" },
+  { name: "Sultana", className: "font-display italic text-3xl" },
+  { name: "ASH CULT", className: "font-display tracking-[0.5em] text-xl font-black" },
+  { name: "Boho Fest", className: "font-display italic text-2xl" },
+  { name: "GODREJ", sub: "RIVERINE", className: "font-display tracking-[0.3em] text-xl" },
+  { name: "Rishita", sub: "DEVELOPERS", className: "font-display text-2xl tracking-wide" },
 ];
 
 const SERVICES = [
@@ -201,25 +184,25 @@ const SERVICES = [
 const EXPERIENCE = [
   {
     company: "Gamoft Consultancy",
-    role: "Creative Lead — Reels, Brand & AI Content",
-    year: "2024 — Present",
+    role: "Junior Video Editor & Content Designer",
+    year: "2021 — 2022",
     location: "Remote · India",
-    type: "Full-time",
-    desc: "Leading the creative pod for D2C and lifestyle brands. Owning the reel pipeline end-to-end — concept, scripting, edit, motion and AI-assisted post — alongside performance creatives for paid social.",
+    type: "First role",
+    desc: "Started my creative journey here — assisting senior editors, cutting short-form reels and learning the foundations of brand-led storytelling, color grading and motion graphics.",
     highlights: [
-      "Built a reel system that lifted average watch-through by 38%",
-      "Shipped AI generated ad variants for 6+ brands across fashion, F&B and real estate",
-      "Mentor a team of 3 editors and 2 designers on retention-first storytelling",
+      "First exposure to live client work across F&B, fashion and real estate",
+      "Built foundational templates for reel hooks, lower-thirds and end frames",
+      "Cut over 150 reels in the first year as part of the in-house edit pod",
     ],
-    stack: ["Premiere Pro", "After Effects", "Runway", "Midjourney"],
+    stack: ["Premiere Pro", "After Effects", "Photoshop", "CapCut"],
   },
   {
     company: "Love Chahal Digital Marketing",
-    role: "Senior Video Editor & Content Designer",
-    year: "2023 — 2024",
+    role: "Video Editor & Reel Specialist",
+    year: "2022 — 2023",
     location: "Lucknow, India",
     type: "Agency",
-    desc: "Anchored the reel and short-form video desk for personal brands, founders and lifestyle businesses. Built repeatable hook frameworks and on-brand edit templates that scaled across the roster.",
+    desc: "Owned the reel and short-form video desk for personal brands, founders and lifestyle businesses. Built repeatable hook frameworks and on-brand edit templates that scaled across the roster.",
     highlights: [
       "Edited 400+ reels with several crossing 1M+ organic views",
       "Designed motion identity kits for 12 personal brands",
@@ -230,7 +213,7 @@ const EXPERIENCE = [
   {
     company: "Reerocket",
     role: "Content Designer & Reel Strategist",
-    year: "2022 — 2023",
+    year: "2023 — 2024",
     location: "Remote",
     type: "Creator studio",
     desc: "Worked with founders and creators to build reel-first content strategies for Instagram and YouTube Shorts. Translated content pillars into weekly shot lists, edit decks and post-production SOPs.",
@@ -243,17 +226,17 @@ const EXPERIENCE = [
   },
   {
     company: "Rahe Solution",
-    role: "Graphic Designer (International — Texas, USA)",
-    year: "2021 — 2022",
+    role: "Senior Graphic & Creative Designer (Texas, USA)",
+    year: "2024 — Present",
     location: "Texas, USA · Remote",
-    type: "International client",
-    desc: "First international engagement — designed social systems, ad creatives and brand collateral for US-based small businesses across real estate, wellness and home services. Owned the full design pipeline from brief to delivery in a different time zone.",
+    type: "Current · International",
+    desc: "Leading creative production for a US-based studio — designing social systems, performance ad creatives and brand collateral for real estate, wellness and home-services clients across the Texas market.",
     highlights: [
-      "Delivered 300+ social and ad creatives across 15+ US brand accounts",
-      "Built a reusable Photoshop and Illustrator template library for the team",
-      "Set up a feedback and revision workflow that cut iterations by half",
+      "Shipping 300+ social and ad creatives annually across 15+ US brand accounts",
+      "Maintaining a reusable Photoshop and Illustrator template library for the team",
+      "Owning the brief → revision → delivery workflow across time zones",
     ],
-    stack: ["Photoshop", "Illustrator", "Canva", "Figma"],
+    stack: ["Photoshop", "Illustrator", "Figma", "After Effects"],
   },
 ];
 
@@ -391,7 +374,7 @@ function Hero() {
           <span className="w-12 h-px bg-gold/40" />
         </motion.div>
 
-        <h1 className="font-display font-black leading-[0.95] tracking-tight text-[clamp(2.5rem,8vw,7.5rem)]">
+        <h1 className="font-display font-black leading-[1.02] tracking-tight text-[clamp(2.5rem,8vw,7.5rem)]">
           {"DEEPAK KUMAR".split(" ").map((w, i) => (
             <motion.span
               key={w}
@@ -407,7 +390,7 @@ function Hero() {
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="block text-gradient-gold italic font-medium"
+            className="block text-gradient-gold italic font-medium leading-[1.18] pb-3 overflow-visible"
           >
             Singh Surya
           </motion.span>
@@ -457,7 +440,7 @@ function Hero() {
         </motion.div>
         </div>
 
-        {/* Right: floating reel preview card */}
+        {/* Right: editing workspace preview — timeline + before/after */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -465,69 +448,122 @@ function Hero() {
           className="lg:col-span-5 hidden lg:flex justify-center items-center relative"
         >
           <motion.div
-            animate={{ y: [0, -16, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative"
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            className="relative w-full max-w-[440px]"
           >
-            {/* gold glow behind */}
-            <div className="absolute -inset-8 rounded-[3rem] bg-gradient-to-br from-gold/30 via-amber-500/10 to-transparent blur-3xl" />
+            {/* ambient glow */}
+            <div className="absolute -inset-10 rounded-[3rem] bg-gradient-to-br from-gold/25 via-amber-500/5 to-transparent blur-3xl" />
 
-            {/* phone-style reel card */}
-            <div className="relative w-[280px] aspect-[9/16] rounded-[2.2rem] overflow-hidden border border-gold/30 bg-gradient-to-br from-[oklch(0.18_0.02_60)] via-[oklch(0.12_0_0)] to-[oklch(0.08_0_0)] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8),0_0_60px_-15px_rgba(212,175,55,0.35)]">
-              {/* shimmer overlay */}
-              <motion.div
-                className="absolute inset-0 pointer-events-none"
-                style={{ background: "linear-gradient(115deg, transparent 30%, rgba(212,175,55,0.18) 50%, transparent 70%)" }}
-                animate={{ x: ["-100%", "100%"] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.5 }}
-              />
-
-              {/* IG top bar */}
-              <div className="absolute top-0 inset-x-0 p-4 flex items-center justify-between text-white/90 text-xs z-10">
-                <span className="font-medium tracking-wide">Reels</span>
-                <div className="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center">
-                  <Volume2 className="w-3 h-3" />
+            {/* editor window */}
+            <div className="relative rounded-2xl overflow-hidden border border-gold/20 bg-[oklch(0.14_0_0)] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.85),0_0_60px_-20px_rgba(212,175,55,0.3)]">
+              {/* title bar */}
+              <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/5 bg-[oklch(0.16_0_0)]">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400/70" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
                 </div>
+                <div className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground">studio · sequence_01.prproj</div>
+                <Wand2 className="w-3.5 h-3.5 text-gold/80" />
               </div>
 
-              {/* center play */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              {/* preview viewport with before/after slider */}
+              <div className="relative aspect-[16/10] overflow-hidden">
+                {/* "before" — raw, flat */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#2a2520] via-[#1c1a16] to-[#0e0d0a]" />
+                <div className="absolute inset-0 opacity-30 mix-blend-overlay" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.4) 1px, transparent 1px)", backgroundSize: "3px 3px" }} />
+                <div className="absolute top-3 left-3 px-2 py-0.5 text-[9px] tracking-[0.3em] uppercase rounded-sm bg-black/50 text-white/70 backdrop-blur-sm">BEFORE</div>
+
+                {/* "after" — graded */}
                 <motion.div
-                  animate={{ scale: [1, 1.08, 1], opacity: [0.85, 1, 0.85] }}
-                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-16 h-16 rounded-full bg-gold/90 backdrop-blur flex items-center justify-center shadow-[0_0_40px_rgba(212,175,55,0.6)]"
+                  className="absolute inset-0"
+                  animate={{ clipPath: ["inset(0 50% 0 0)", "inset(0 35% 0 0)", "inset(0 50% 0 0)"] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <div className="w-0 h-0 border-y-[10px] border-y-transparent border-l-[16px] border-l-primary-foreground ml-1" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#3d1f1a] via-[#5a2a14] to-[#0b0b0b]" />
+                  <div className="absolute -top-10 -left-10 w-2/3 h-2/3 rounded-full blur-3xl opacity-70" style={{ background: "radial-gradient(circle, #E8B547AA, transparent 65%)" }} />
+                  <div className="absolute bottom-0 right-0 w-3/4 h-3/4 rounded-full blur-3xl opacity-50" style={{ background: "radial-gradient(circle, #E8B4A055, transparent 60%)" }} />
+                  <div className="absolute top-3 right-3 px-2 py-0.5 text-[9px] tracking-[0.3em] uppercase rounded-sm bg-gold/90 text-primary-foreground">GRADED</div>
                 </motion.div>
+
+                {/* slider line */}
+                <motion.div
+                  className="absolute top-0 bottom-0 w-px bg-gold/90 shadow-[0_0_12px_var(--gold)]"
+                  animate={{ left: ["50%", "65%", "50%"] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-gold flex items-center justify-center shadow-[0_0_20px_var(--gold)]">
+                    <div className="w-2.5 h-2.5 rounded-full bg-primary-foreground" />
+                  </div>
+                </motion.div>
+
+                {/* center play */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <motion.div
+                    animate={{ scale: [1, 1.06, 1], opacity: [0.85, 1, 0.85] }}
+                    transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-14 h-14 rounded-full bg-white/10 backdrop-blur border border-white/40 flex items-center justify-center"
+                  >
+                    <Play className="w-5 h-5 text-white fill-white ml-0.5" />
+                  </motion.div>
+                </div>
+
+                {/* film grain */}
+                <div className="absolute inset-0 opacity-[0.1] mix-blend-overlay pointer-events-none" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)", backgroundSize: "3px 3px" }} />
               </div>
 
-              {/* right rail */}
-              <div className="absolute right-3 bottom-24 flex flex-col items-center gap-4 text-white/90 z-10">
-                <div className="flex flex-col items-center gap-1">
-                  <Heart className="w-5 h-5" />
-                  <span className="text-[10px]">128K</span>
+              {/* timeline */}
+              <div className="px-4 py-4 bg-[oklch(0.12_0_0)] border-t border-white/5 space-y-2">
+                {/* time ruler */}
+                <div className="flex items-center justify-between text-[9px] tracking-widest text-muted-foreground/70 mb-1">
+                  <span>00:00</span>
+                  <span className="text-gold">00:14</span>
+                  <span>00:30</span>
                 </div>
-                <div className="flex flex-col items-center gap-1">
-                  <MessageSquare className="w-5 h-5" />
-                  <span className="text-[10px]">2.4K</span>
-                </div>
-                <div className="flex flex-col items-center gap-1">
-                  <Send className="w-5 h-5" />
-                  <span className="text-[10px]">9.1K</span>
-                </div>
-                <Bookmark className="w-5 h-5" />
+                {/* tracks */}
+                {[
+                  { icon: Film, label: "V1 · Footage", color: "bg-gradient-to-r from-amber-700/60 via-amber-500/70 to-amber-700/60", w: "w-[78%]" },
+                  { icon: Layers, label: "V2 · Overlay", color: "bg-gradient-to-r from-purple-700/50 to-rose-500/50", w: "w-[55%] ml-[18%]" },
+                  { icon: TypeIcon, label: "T1 · Title", color: "bg-gradient-to-r from-gold/70 to-amber-300/70", w: "w-[28%] ml-[10%]" },
+                  { icon: Music2, label: "A1 · Audio", color: "bg-gradient-to-r from-emerald-700/40 via-emerald-500/50 to-emerald-700/40", w: "w-[92%]" },
+                ].map((t, i) => {
+                  const I = t.icon;
+                  return (
+                    <div key={i} className="flex items-center gap-2">
+                      <I className="w-3 h-3 text-muted-foreground/60 flex-shrink-0" />
+                      <div className="flex-1 h-3.5 rounded-sm bg-white/[0.03] overflow-hidden relative">
+                        <motion.div
+                          initial={{ scaleX: 0 }}
+                          animate={{ scaleX: 1 }}
+                          transition={{ delay: 1 + i * 0.15, duration: 0.8, ease: "easeOut" }}
+                          style={{ transformOrigin: "left" }}
+                          className={`h-full rounded-sm ${t.color} ${t.w}`}
+                        />
+                      </div>
+                      <span className="text-[9px] tracking-wider uppercase text-muted-foreground/60 w-14 text-right">{t.label.split(" ")[0]}</span>
+                    </div>
+                  );
+                })}
+                {/* playhead bar */}
+                <motion.div
+                  className="absolute left-[28%] top-[58%] bottom-4 w-px bg-gold/70"
+                  animate={{ left: ["28%", "70%", "28%"] }}
+                  transition={{ duration: 9, repeat: Infinity, ease: "linear" }}
+                />
               </div>
 
-              {/* caption */}
-              <div className="absolute bottom-0 inset-x-0 p-4 pr-16 z-10 bg-gradient-to-t from-black/80 to-transparent">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-gold to-amber-700 border border-gold/60" />
-                  <span className="text-xs text-white font-medium">@deepak.surya</span>
-                  <span className="text-[10px] text-gold border border-gold/60 rounded-full px-2 py-px">Follow</span>
+              {/* status bar */}
+              <div className="flex items-center justify-between px-4 py-2 border-t border-white/5 bg-[oklch(0.10_0_0)] text-[10px] tracking-widest uppercase">
+                <div className="flex items-center gap-3 text-muted-foreground/70">
+                  <span className="flex items-center gap-1.5"><Scissors className="w-3 h-3 text-gold" /> Cut</span>
+                  <span>23.976 fps</span>
+                  <span>4K · ProRes</span>
                 </div>
-                <p className="text-[11px] text-white/85 leading-snug">
-                  Crafting the cut · <span className="text-gold">#ReelEdit</span> <span className="text-gold">#BrandFilm</span>
-                </p>
+                <span className="flex items-center gap-1.5 text-gold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+                  Rendering
+                </span>
               </div>
             </div>
 
@@ -535,20 +571,20 @@ function Hero() {
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute -left-10 top-12 glass-gold rounded-2xl px-4 py-3 backdrop-blur-xl border border-gold/30"
+              className="absolute -left-8 -top-6 glass-gold rounded-2xl px-4 py-3 backdrop-blur-xl border border-gold/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
             >
-              <div className="text-[10px] tracking-[0.2em] text-gold uppercase">Avg. Reach</div>
-              <div className="font-display text-2xl text-gradient-gold">2.4M+</div>
+              <div className="text-[10px] tracking-[0.2em] text-gold uppercase">Color Graded</div>
+              <div className="font-display text-xl text-gradient-gold">4K · HDR</div>
             </motion.div>
 
             {/* floating badge */}
             <motion.div
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -right-8 bottom-20 glass rounded-2xl px-4 py-3 backdrop-blur-xl border border-foreground/10"
+              className="absolute -right-6 -bottom-6 glass rounded-2xl px-4 py-3 backdrop-blur-xl border border-foreground/10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
             >
               <div className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase">Now editing</div>
-              <div className="text-sm text-foreground font-medium">Barista × Winter</div>
+              <div className="text-sm text-foreground font-medium">Brand campaign · 12 cuts</div>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -679,36 +715,13 @@ function VideoShowcase() {
                   </motion.div>
                 </div>
 
-                {/* IG right rail */}
-                <div className="absolute right-2.5 bottom-20 flex flex-col items-center gap-3.5 text-white z-10">
-                  <div className="flex flex-col items-center">
-                    <Heart className="w-5 h-5 drop-shadow" />
-                    <span className="text-[9px] mt-0.5">{r.likes}</span>
+                {/* Bottom caption — clean, no IG UI */}
+                <div className="absolute bottom-0 inset-x-0 p-4 z-10 bg-gradient-to-t from-black/85 via-black/40 to-transparent">
+                  <div className="text-[10px] tracking-[0.3em] uppercase mb-1.5" style={{ color: r.accent }}>
+                    {r.category}
                   </div>
-                  <div className="flex flex-col items-center">
-                    <MessageSquare className="w-5 h-5 drop-shadow" />
-                    <span className="text-[9px] mt-0.5">2.1K</span>
-                  </div>
-                  <Send className="w-5 h-5 drop-shadow" />
-                  <Bookmark className="w-5 h-5 drop-shadow" />
-                  <MoreHorizontal className="w-5 h-5 drop-shadow" />
-                </div>
-
-                {/* Bottom caption + handle */}
-                <div className="absolute bottom-0 inset-x-0 p-4 pr-12 z-10 bg-gradient-to-t from-black/85 via-black/40 to-transparent">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gold to-amber-700 border border-white/30" />
-                    <span className="text-[11px] font-semibold text-white">@deepak.edits</span>
-                  </div>
-                  <div className="text-[11px] text-white/85 line-clamp-2 leading-snug">{r.caption}</div>
-                  <div className="flex items-center gap-2 mt-1.5 text-[10px]">
-                    <span style={{ color: r.accent }}>{r.hashtag}</span>
-                    <span className="text-white/50">·</span>
-                    <span className="flex items-center gap-1 text-white/70">
-                      <Play className="w-2.5 h-2.5 fill-current" />
-                      {r.views}
-                    </span>
-                  </div>
+                  <div className="font-display text-lg text-white leading-tight">{r.title}</div>
+                  <div className="text-[11px] text-white/70 line-clamp-2 leading-snug mt-1.5">{r.caption}</div>
                 </div>
 
                 {/* timeline scrubber */}
@@ -727,7 +740,7 @@ function VideoShowcase() {
               <div className="mt-4 flex items-start justify-between gap-3">
                 <div>
                   <div className="text-[10px] tracking-[0.3em] uppercase text-gold">{r.category}</div>
-                  <div className="font-display text-lg text-foreground mt-1 leading-tight">{r.client}</div>
+                  <div className="font-display text-lg text-foreground mt-1 leading-tight">{r.title}</div>
                 </div>
                 <ArrowUpRight className="w-4 h-4 text-muted-foreground mt-1 group-hover:text-gold group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
               </div>
@@ -764,18 +777,18 @@ function VideoShowcase() {
                 }}
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">
-                <div className="text-7xl mb-6">{REELS[open].emoji}</div>
+                <div className="text-7xl mb-6">{REELS[open].icon}</div>
                 <div
                   className="text-xs tracking-[0.4em] uppercase px-4 py-1.5 rounded-full border"
                   style={{ color: REELS[open].accent, borderColor: `${REELS[open].accent}55` }}
                 >
                   {REELS[open].category}
                 </div>
-                <div className="font-display text-4xl mt-6 text-white">{REELS[open].client}</div>
+                <div className="font-display text-4xl mt-6 text-white">{REELS[open].title}</div>
                 <div className="text-sm text-white/70 mt-3 max-w-xs">{REELS[open].caption}</div>
-                <div className="flex items-center gap-6 mt-8 text-white/80 text-sm">
-                  <div className="flex items-center gap-2"><Play className="w-4 h-4 fill-current" />{REELS[open].views}</div>
-                  <div className="flex items-center gap-2"><Heart className="w-4 h-4" />{REELS[open].likes}</div>
+                <div className="mt-8 inline-flex items-center gap-2 text-white/70 text-xs tracking-[0.3em] uppercase">
+                  <Play className="w-3.5 h-3.5 fill-current text-gold" />
+                  Sample portfolio reel
                 </div>
               </div>
               <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
@@ -795,9 +808,9 @@ function DesignShowcase() {
     <section id="design" className="relative py-32 px-6 bg-[oklch(0.11_0_0)]">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
-          eyebrow="Graphic Design Portfolio"
-          title="Real client creatives, crafted for scroll-stopping feeds."
-          sub="Posters, menus, lookbooks, brand systems and performance creatives — pulled straight from live client work."
+          eyebrow="Creative Design Work"
+          title="Posters, brand systems & social creatives."
+          sub="Poster design, brand design and social media creatives — crafted for scroll-stopping feeds and editorial print drops."
         />
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 [column-fill:_balance]">
           {DESIGNS.map((d, i) => {
@@ -963,18 +976,23 @@ function Brands() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-gold/10 rounded-2xl overflow-hidden border border-gold/15">
           {BRANDS.map((b, i) => (
             <motion.div
-              key={b}
+              key={b.name}
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ delay: i * 0.06, duration: 0.6 }}
               whileHover={{ y: -2 }}
-              className="bg-background/95 aspect-[5/2] flex items-center justify-center group hover:bg-card transition-all duration-500 cursor-default relative"
+              className="bg-background/95 aspect-[5/2] flex items-center justify-center group hover:bg-card transition-all duration-500 cursor-default relative px-4"
             >
               <span className="absolute inset-x-6 top-4 text-[10px] tracking-[0.3em] text-muted-foreground/40 uppercase opacity-0 group-hover:opacity-100 transition-opacity">
                 Client 0{i + 1}
               </span>
-              <span className="font-display text-lg md:text-2xl tracking-wide text-foreground/80 group-hover:text-gradient-gold transition-all">
-                {b}
-              </span>
+              <div className="flex flex-col items-center justify-center gap-1 text-center text-foreground/45 grayscale group-hover:text-gold group-hover:grayscale-0 transition-all duration-500">
+                <span className={`${b.className} leading-none`}>{b.name}</span>
+                {b.sub && (
+                  <span className="text-[9px] tracking-[0.45em] uppercase text-foreground/35 group-hover:text-gold/80 transition-colors">
+                    {b.sub}
+                  </span>
+                )}
+              </div>
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-0 bg-gold group-hover:w-2/3 transition-all duration-500" />
             </motion.div>
           ))}
@@ -1173,9 +1191,23 @@ function Contact() {
 function Footer() {
   return (
     <footer className="border-t border-border/50 py-10 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <div>© {new Date().getFullYear()} Deepak Kumar Singh Surya. All rights reserved.</div>
-        <div className="font-display tracking-wider">Crafted with intention<span className="text-gold">.</span></div>
+      <div className="max-w-7xl mx-auto flex flex-col gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <div>© {new Date().getFullYear()} Deepak Kumar Singh Surya. All rights reserved.</div>
+          <div className="font-display tracking-wider">Crafted with intention<span className="text-gold">.</span></div>
+        </div>
+        <div className="pt-5 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-2 text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60">
+          <div>
+            Website Designed &amp; Developed by{" "}
+            <span className="text-foreground/80 tracking-wide normal-case font-medium">Himanshu Pawar</span>
+          </div>
+          <a
+            href="mailto:pawarhp15@gmail.com"
+            className="tracking-wide normal-case text-muted-foreground/70 hover:text-gold transition-colors"
+          >
+            pawarhp15@gmail.com
+          </a>
+        </div>
       </div>
     </footer>
   );
