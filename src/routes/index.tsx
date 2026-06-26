@@ -374,7 +374,7 @@ function Hero() {
           <span className="w-12 h-px bg-gold/40" />
         </motion.div>
 
-        <h1 className="font-display font-black leading-[0.95] tracking-tight text-[clamp(2.5rem,8vw,7.5rem)]">
+        <h1 className="font-display font-black leading-[1.02] tracking-tight text-[clamp(2.5rem,8vw,7.5rem)]">
           {"DEEPAK KUMAR".split(" ").map((w, i) => (
             <motion.span
               key={w}
@@ -390,7 +390,7 @@ function Hero() {
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="block text-gradient-gold italic font-medium"
+            className="block text-gradient-gold italic font-medium leading-[1.18] pb-3 overflow-visible"
           >
             Singh Surya
           </motion.span>
