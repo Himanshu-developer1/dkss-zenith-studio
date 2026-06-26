@@ -740,7 +740,7 @@ function VideoShowcase() {
               <div className="mt-4 flex items-start justify-between gap-3">
                 <div>
                   <div className="text-[10px] tracking-[0.3em] uppercase text-gold">{r.category}</div>
-                  <div className="font-display text-lg text-foreground mt-1 leading-tight">{r.client}</div>
+                  <div className="font-display text-lg text-foreground mt-1 leading-tight">{r.title}</div>
                 </div>
                 <ArrowUpRight className="w-4 h-4 text-muted-foreground mt-1 group-hover:text-gold group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
               </div>
