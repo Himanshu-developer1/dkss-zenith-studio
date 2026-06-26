@@ -440,7 +440,7 @@ function Hero() {
         </motion.div>
         </div>
 
-        {/* Right: floating reel preview card */}
+        {/* Right: editing workspace preview — timeline + before/after */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -448,69 +448,122 @@ function Hero() {
           className="lg:col-span-5 hidden lg:flex justify-center items-center relative"
         >
           <motion.div
-            animate={{ y: [0, -16, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative"
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            className="relative w-full max-w-[440px]"
           >
-            {/* gold glow behind */}
-            <div className="absolute -inset-8 rounded-[3rem] bg-gradient-to-br from-gold/30 via-amber-500/10 to-transparent blur-3xl" />
+            {/* ambient glow */}
+            <div className="absolute -inset-10 rounded-[3rem] bg-gradient-to-br from-gold/25 via-amber-500/5 to-transparent blur-3xl" />
 
-            {/* phone-style reel card */}
-            <div className="relative w-[280px] aspect-[9/16] rounded-[2.2rem] overflow-hidden border border-gold/30 bg-gradient-to-br from-[oklch(0.18_0.02_60)] via-[oklch(0.12_0_0)] to-[oklch(0.08_0_0)] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8),0_0_60px_-15px_rgba(212,175,55,0.35)]">
-              {/* shimmer overlay */}
-              <motion.div
-                className="absolute inset-0 pointer-events-none"
-                style={{ background: "linear-gradient(115deg, transparent 30%, rgba(212,175,55,0.18) 50%, transparent 70%)" }}
-                animate={{ x: ["-100%", "100%"] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.5 }}
-              />
-
-              {/* IG top bar */}
-              <div className="absolute top-0 inset-x-0 p-4 flex items-center justify-between text-white/90 text-xs z-10">
-                <span className="font-medium tracking-wide">Reels</span>
-                <div className="w-5 h-5 rounded-full border border-white/40 flex items-center justify-center">
-                  <Volume2 className="w-3 h-3" />
+            {/* editor window */}
+            <div className="relative rounded-2xl overflow-hidden border border-gold/20 bg-[oklch(0.14_0_0)] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.85),0_0_60px_-20px_rgba(212,175,55,0.3)]">
+              {/* title bar */}
+              <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/5 bg-[oklch(0.16_0_0)]">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400/70" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
                 </div>
+                <div className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground">studio · sequence_01.prproj</div>
+                <Wand2 className="w-3.5 h-3.5 text-gold/80" />
               </div>
 
-              {/* center play */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              {/* preview viewport with before/after slider */}
+              <div className="relative aspect-[16/10] overflow-hidden">
+                {/* "before" — raw, flat */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#2a2520] via-[#1c1a16] to-[#0e0d0a]" />
+                <div className="absolute inset-0 opacity-30 mix-blend-overlay" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.4) 1px, transparent 1px)", backgroundSize: "3px 3px" }} />
+                <div className="absolute top-3 left-3 px-2 py-0.5 text-[9px] tracking-[0.3em] uppercase rounded-sm bg-black/50 text-white/70 backdrop-blur-sm">BEFORE</div>
+
+                {/* "after" — graded */}
                 <motion.div
-                  animate={{ scale: [1, 1.08, 1], opacity: [0.85, 1, 0.85] }}
-                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-16 h-16 rounded-full bg-gold/90 backdrop-blur flex items-center justify-center shadow-[0_0_40px_rgba(212,175,55,0.6)]"
+                  className="absolute inset-0"
+                  animate={{ clipPath: ["inset(0 50% 0 0)", "inset(0 35% 0 0)", "inset(0 50% 0 0)"] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <div className="w-0 h-0 border-y-[10px] border-y-transparent border-l-[16px] border-l-primary-foreground ml-1" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#3d1f1a] via-[#5a2a14] to-[#0b0b0b]" />
+                  <div className="absolute -top-10 -left-10 w-2/3 h-2/3 rounded-full blur-3xl opacity-70" style={{ background: "radial-gradient(circle, #E8B547AA, transparent 65%)" }} />
+                  <div className="absolute bottom-0 right-0 w-3/4 h-3/4 rounded-full blur-3xl opacity-50" style={{ background: "radial-gradient(circle, #E8B4A055, transparent 60%)" }} />
+                  <div className="absolute top-3 right-3 px-2 py-0.5 text-[9px] tracking-[0.3em] uppercase rounded-sm bg-gold/90 text-primary-foreground">GRADED</div>
                 </motion.div>
+
+                {/* slider line */}
+                <motion.div
+                  className="absolute top-0 bottom-0 w-px bg-gold/90 shadow-[0_0_12px_var(--gold)]"
+                  animate={{ left: ["50%", "65%", "50%"] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-gold flex items-center justify-center shadow-[0_0_20px_var(--gold)]">
+                    <div className="w-2.5 h-2.5 rounded-full bg-primary-foreground" />
+                  </div>
+                </motion.div>
+
+                {/* center play */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <motion.div
+                    animate={{ scale: [1, 1.06, 1], opacity: [0.85, 1, 0.85] }}
+                    transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-14 h-14 rounded-full bg-white/10 backdrop-blur border border-white/40 flex items-center justify-center"
+                  >
+                    <Play className="w-5 h-5 text-white fill-white ml-0.5" />
+                  </motion.div>
+                </div>
+
+                {/* film grain */}
+                <div className="absolute inset-0 opacity-[0.1] mix-blend-overlay pointer-events-none" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)", backgroundSize: "3px 3px" }} />
               </div>
 
-              {/* right rail */}
-              <div className="absolute right-3 bottom-24 flex flex-col items-center gap-4 text-white/90 z-10">
-                <div className="flex flex-col items-center gap-1">
-                  <Heart className="w-5 h-5" />
-                  <span className="text-[10px]">128K</span>
+              {/* timeline */}
+              <div className="px-4 py-4 bg-[oklch(0.12_0_0)] border-t border-white/5 space-y-2">
+                {/* time ruler */}
+                <div className="flex items-center justify-between text-[9px] tracking-widest text-muted-foreground/70 mb-1">
+                  <span>00:00</span>
+                  <span className="text-gold">00:14</span>
+                  <span>00:30</span>
                 </div>
-                <div className="flex flex-col items-center gap-1">
-                  <MessageSquare className="w-5 h-5" />
-                  <span className="text-[10px]">2.4K</span>
-                </div>
-                <div className="flex flex-col items-center gap-1">
-                  <Send className="w-5 h-5" />
-                  <span className="text-[10px]">9.1K</span>
-                </div>
-                <Bookmark className="w-5 h-5" />
+                {/* tracks */}
+                {[
+                  { icon: Film, label: "V1 · Footage", color: "bg-gradient-to-r from-amber-700/60 via-amber-500/70 to-amber-700/60", w: "w-[78%]" },
+                  { icon: Layers, label: "V2 · Overlay", color: "bg-gradient-to-r from-purple-700/50 to-rose-500/50", w: "w-[55%] ml-[18%]" },
+                  { icon: TypeIcon, label: "T1 · Title", color: "bg-gradient-to-r from-gold/70 to-amber-300/70", w: "w-[28%] ml-[10%]" },
+                  { icon: Music2, label: "A1 · Audio", color: "bg-gradient-to-r from-emerald-700/40 via-emerald-500/50 to-emerald-700/40", w: "w-[92%]" },
+                ].map((t, i) => {
+                  const I = t.icon;
+                  return (
+                    <div key={i} className="flex items-center gap-2">
+                      <I className="w-3 h-3 text-muted-foreground/60 flex-shrink-0" />
+                      <div className="flex-1 h-3.5 rounded-sm bg-white/[0.03] overflow-hidden relative">
+                        <motion.div
+                          initial={{ scaleX: 0 }}
+                          animate={{ scaleX: 1 }}
+                          transition={{ delay: 1 + i * 0.15, duration: 0.8, ease: "easeOut" }}
+                          style={{ transformOrigin: "left" }}
+                          className={`h-full rounded-sm ${t.color} ${t.w}`}
+                        />
+                      </div>
+                      <span className="text-[9px] tracking-wider uppercase text-muted-foreground/60 w-14 text-right">{t.label.split(" ")[0]}</span>
+                    </div>
+                  );
+                })}
+                {/* playhead bar */}
+                <motion.div
+                  className="absolute left-[28%] top-[58%] bottom-4 w-px bg-gold/70"
+                  animate={{ left: ["28%", "70%", "28%"] }}
+                  transition={{ duration: 9, repeat: Infinity, ease: "linear" }}
+                />
               </div>
 
-              {/* caption */}
-              <div className="absolute bottom-0 inset-x-0 p-4 pr-16 z-10 bg-gradient-to-t from-black/80 to-transparent">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-gold to-amber-700 border border-gold/60" />
-                  <span className="text-xs text-white font-medium">@deepak.surya</span>
-                  <span className="text-[10px] text-gold border border-gold/60 rounded-full px-2 py-px">Follow</span>
+              {/* status bar */}
+              <div className="flex items-center justify-between px-4 py-2 border-t border-white/5 bg-[oklch(0.10_0_0)] text-[10px] tracking-widest uppercase">
+                <div className="flex items-center gap-3 text-muted-foreground/70">
+                  <span className="flex items-center gap-1.5"><Scissors className="w-3 h-3 text-gold" /> Cut</span>
+                  <span>23.976 fps</span>
+                  <span>4K · ProRes</span>
                 </div>
-                <p className="text-[11px] text-white/85 leading-snug">
-                  Crafting the cut · <span className="text-gold">#ReelEdit</span> <span className="text-gold">#BrandFilm</span>
-                </p>
+                <span className="flex items-center gap-1.5 text-gold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+                  Rendering
+                </span>
               </div>
             </div>
 
@@ -518,20 +571,20 @@ function Hero() {
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute -left-10 top-12 glass-gold rounded-2xl px-4 py-3 backdrop-blur-xl border border-gold/30"
+              className="absolute -left-8 -top-6 glass-gold rounded-2xl px-4 py-3 backdrop-blur-xl border border-gold/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
             >
-              <div className="text-[10px] tracking-[0.2em] text-gold uppercase">Avg. Reach</div>
-              <div className="font-display text-2xl text-gradient-gold">2.4M+</div>
+              <div className="text-[10px] tracking-[0.2em] text-gold uppercase">Color Graded</div>
+              <div className="font-display text-xl text-gradient-gold">4K · HDR</div>
             </motion.div>
 
             {/* floating badge */}
             <motion.div
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -right-8 bottom-20 glass rounded-2xl px-4 py-3 backdrop-blur-xl border border-foreground/10"
+              className="absolute -right-6 -bottom-6 glass rounded-2xl px-4 py-3 backdrop-blur-xl border border-foreground/10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
             >
               <div className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase">Now editing</div>
-              <div className="text-sm text-foreground font-medium">Barista × Winter</div>
+              <div className="text-sm text-foreground font-medium">Brand campaign · 12 cuts</div>
             </motion.div>
           </motion.div>
         </motion.div>
