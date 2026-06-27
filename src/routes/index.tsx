@@ -732,12 +732,12 @@ function DesignShowcase() {
                       backgroundSize: "3px 3px, 5px 5px",
                     }}
                   />
-                  {/* hover wash + arrow */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/0 to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
-                  <div className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  {/* hover wash + caption (caption hidden until hover so we don't overlap baked-in artwork text) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <ArrowUpRight className="w-4 h-4 text-gold" />
                   </div>
-                  <div className="absolute bottom-0 inset-x-0 p-4">
+                  <div className="absolute bottom-0 inset-x-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                     <div className="text-[10px] tracking-[0.3em] uppercase text-gold/90">{d.tag}</div>
                     <div className="font-display text-lg text-white mt-1 leading-tight">{d.title}</div>
                   </div>
