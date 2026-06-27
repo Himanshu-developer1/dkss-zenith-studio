@@ -614,7 +614,7 @@ function VideoShowcase() {
                     {r.category}
                   </div>
                   <div className="font-display text-lg text-white leading-tight">{r.title}</div>
-                  <div className="text-[11px] text-white/70 line-clamp-2 leading-snug mt-1.5">{r.caption}</div>
+                  
                 </div>
 
                 {/* timeline scrubber */}
