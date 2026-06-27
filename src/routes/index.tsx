@@ -10,6 +10,34 @@ import {
 import heroBg from "@/assets/hero-bg.jpg";
 import portrait from "@/assets/portrait.jpg";
 
+// Real creator assets (Drive → CDN)
+import aiAdset1 from "@/assets/portfolio/ai-adset-1.mp4.asset.json";
+import aiAdset1Thumb from "@/assets/portfolio/ai-adset-1-thumb.jpg.asset.json";
+import aiPackage from "@/assets/portfolio/ai-package.mp4.asset.json";
+import aiPackageThumb from "@/assets/portfolio/ai-package-thumb.jpg.asset.json";
+import aiReel1 from "@/assets/portfolio/ai-reel-1.mp4.asset.json";
+import aiReel1Thumb from "@/assets/portfolio/ai-reel-1-thumb.jpg.asset.json";
+import aiReel2 from "@/assets/portfolio/ai-reel-2.mp4.asset.json";
+import aiReel2Thumb from "@/assets/portfolio/ai-reel-2-thumb.jpg.asset.json";
+import aiSwag from "@/assets/portfolio/ai-swagcentral.mp4.asset.json";
+import aiSwagThumb from "@/assets/portfolio/ai-swagcentral-thumb.jpg.asset.json";
+import aiUntitled from "@/assets/portfolio/ai-untitled.mp4.asset.json";
+import aiUntitledThumb from "@/assets/portfolio/ai-untitled-thumb.jpg.asset.json";
+import fashionFreestyle from "@/assets/portfolio/fashion-freestyle.mp4.asset.json";
+import fashionFreestyleThumb from "@/assets/portfolio/fashion-freestyle-thumb.jpg.asset.json";
+import fashionPhoolini from "@/assets/portfolio/fashion-phoolini.mp4.asset.json";
+import fashionPhooliniThumb from "@/assets/portfolio/fashion-phoolini-thumb.jpg.asset.json";
+import fashionV1b from "@/assets/portfolio/fashion-video-1b.mp4.asset.json";
+import fashionV1bThumb from "@/assets/portfolio/fashion-video-1b-thumb.jpg.asset.json";
+import fashionV1c from "@/assets/portfolio/fashion-video-1c.mp4.asset.json";
+import fashionV1cThumb from "@/assets/portfolio/fashion-video-1c-thumb.jpg.asset.json";
+import fashionV3 from "@/assets/portfolio/fashion-video-3.mp4.asset.json";
+import fashionV3Thumb from "@/assets/portfolio/fashion-video-3-thumb.jpg.asset.json";
+import posterSmarana from "@/assets/portfolio/poster-smarana.jpg.asset.json";
+import posterPlugd from "@/assets/portfolio/poster-plugd.png.asset.json";
+import posterSia from "@/assets/portfolio/poster-sia.jpg.asset.json";
+import posterArmchair from "@/assets/portfolio/poster-armchair.jpg.asset.json";
+
 export const Route = createFileRoute("/")({
   component: Index,
 });
@@ -17,147 +45,24 @@ export const Route = createFileRoute("/")({
 const ROLES = ["Video Editor", "Graphic Designer", "Social Media Manager", "Creative Strategist"];
 
 const REELS = [
-  {
-    category: "Real Estate Videos",
-    title: "Skyline Residences",
-    caption: "Cinematic walkthrough · drone establishing · interior cuts",
-    gradient: "from-[#0f1a2e] via-[#142436] to-[#0b0b0b]",
-    accent: "#9DB4D4",
-    icon: "🏙",
-  },
-  {
-    category: "Fashion Brand Ads",
-    title: "Editorial Drop",
-    caption: "Runway cuts · beat-matched transitions · lookbook film",
-    gradient: "from-[#2a1810] via-[#3d1f1a] to-[#0b0b0b]",
-    accent: "#E8B4A0",
-    icon: "👗",
-  },
-  {
-    category: "Organic Farming Videos",
-    title: "Field to Harvest",
-    caption: "Slow-mo b-roll · earthy color grade · narrative voiceover",
-    gradient: "from-[#1a2410] via-[#243018] to-[#0b0b0b]",
-    accent: "#B8D48A",
-    icon: "🌾",
-  },
-  {
-    category: "Restaurant / Cafe Ads",
-    title: "House Specials",
-    caption: "Plating sequence · slow-mo pours · ASMR food cuts",
-    gradient: "from-[#2e1a0f] via-[#3d2410] to-[#0b0b0b]",
-    accent: "#E8B547",
-    icon: "🍽",
-  },
-  {
-    category: "Product Commercials",
-    title: "Hero Drop Film",
-    caption: "Macro shots · kinetic type · studio-lit product edit",
-    gradient: "from-[#2a1a2e] via-[#1f1430] to-[#0b0b0b]",
-    accent: "#C9A227",
-    icon: "✨",
-  },
-  {
-    category: "AI Generated Ads",
-    title: "Generative Spot",
-    caption: "Sora + Runway pipeline · surreal scene build · neural grade",
-    gradient: "from-[#1a1a2e] via-[#2a1f3d] to-[#0b0b0b]",
-    accent: "#D4A0E8",
-    icon: "🤖",
-  },
+  { category: "Fashion Brand Ads", title: "Phoolini — Editorial Cut", src: fashionPhoolini.url, poster: fashionPhooliniThumb.url, accent: "#E8B4A0" },
+  { category: "Fashion Brand Ads", title: "Freestyle v2", src: fashionFreestyle.url, poster: fashionFreestyleThumb.url, accent: "#E8B4A0" },
+  { category: "Fashion Brand Ads", title: "Lookbook Film 03", src: fashionV3.url, poster: fashionV3Thumb.url, accent: "#E8B4A0" },
+  { category: "Fashion Brand Ads", title: "Lookbook Film 01 / B", src: fashionV1b.url, poster: fashionV1bThumb.url, accent: "#E8B4A0" },
+  { category: "Fashion Brand Ads", title: "Lookbook Film 01 / C", src: fashionV1c.url, poster: fashionV1cThumb.url, accent: "#E8B4A0" },
+  { category: "AI Generated Ads", title: "Swagcentral — Generative Spot", src: aiSwag.url, poster: aiSwagThumb.url, accent: "#D4A0E8" },
+  { category: "AI Generated Ads", title: "Untitled Design — Surreal Build", src: aiUntitled.url, poster: aiUntitledThumb.url, accent: "#D4A0E8" },
+  { category: "AI Generated Ads", title: "AI Reel 01", src: aiReel1.url, poster: aiReel1Thumb.url, accent: "#D4A0E8" },
+  { category: "AI Generated Ads", title: "AI Reel 02", src: aiReel2.url, poster: aiReel2Thumb.url, accent: "#D4A0E8" },
+  { category: "AI Generated Ads", title: "Ad Set 01", src: aiAdset1.url, poster: aiAdset1Thumb.url, accent: "#D4A0E8" },
+  { category: "AI Generated Ads", title: "Package — Concept Ad", src: aiPackage.url, poster: aiPackageThumb.url, accent: "#D4A0E8" },
 ];
 
 const DESIGNS = [
-  {
-    category: "Social Media Posters",
-    client: "Barista India",
-    title: "Winter Brew Drop",
-    tag: "Poster Series",
-    h: "tall",
-    palette: "from-[#3a1a0c] via-[#5a2a14] to-[#1a0a04]",
-    accent: "#e8a87c",
-    layout: "poster",
-  },
-  {
-    category: "Restaurant Creatives",
-    client: "House of Chettinad",
-    title: "Sunday Thali Menu",
-    tag: "Menu Creative",
-    h: "short",
-    palette: "from-[#2d1810] via-[#4a2418] to-[#1a0c06]",
-    accent: "#d4a574",
-    layout: "menu",
-  },
-  {
-    category: "Fashion Brand Creatives",
-    client: "Sultana × Ash Cult",
-    title: "Editorial Drop 02",
-    tag: "Lookbook Spread",
-    h: "med",
-    palette: "from-[#1a1a1a] via-[#2a2520] to-[#0a0a0a]",
-    accent: "#c9a96e",
-    layout: "fashion",
-  },
-  {
-    category: "Hotel Branding",
-    client: "LevelUp Hotels",
-    title: "Suite Stories Identity",
-    tag: "Brand System",
-    h: "tall",
-    palette: "from-[#0f1a1f] via-[#1a2d35] to-[#050a0d]",
-    accent: "#b8956a",
-    layout: "brand",
-  },
-  {
-    category: "Instagram Promotional Design",
-    client: "Boho Fest",
-    title: "Festival Launch Carousel",
-    tag: "IG Carousel",
-    h: "med",
-    palette: "from-[#2a1530] via-[#3d1f4a] to-[#10081a]",
-    accent: "#e8c468",
-    layout: "carousel",
-  },
-  {
-    category: "Marketing Creatives",
-    client: "Godrej Riverine",
-    title: "Riverfront Living Campaign",
-    tag: "Performance Ad",
-    h: "short",
-    palette: "from-[#0c1f2a] via-[#143040] to-[#05101a]",
-    accent: "#d4b886",
-    layout: "ad",
-  },
-  {
-    category: "Social Media Posters",
-    client: "Desi Comedy Club",
-    title: "Weekend Stand-up Bill",
-    tag: "Event Poster",
-    h: "med",
-    palette: "from-[#2a0a14] via-[#48121f] to-[#10040a]",
-    accent: "#f0b04a",
-    layout: "poster",
-  },
-  {
-    category: "Instagram Promotional Design",
-    client: "Rishita Developers",
-    title: "Project Reveal Reel Cover",
-    tag: "IG Cover",
-    h: "tall",
-    palette: "from-[#1a160c] via-[#2d2614] to-[#0a0804]",
-    accent: "#c9a45a",
-    layout: "carousel",
-  },
-  {
-    category: "Fashion Brand Creatives",
-    client: "Ash Cult",
-    title: "Streetwear Story Frame",
-    tag: "Story Set",
-    h: "short",
-    palette: "from-[#0a0a0a] via-[#1f1f1f] to-[#000000]",
-    accent: "#d4b886",
-    layout: "fashion",
-  },
+  { category: "Creative Design Work", title: "Smarana", tag: "Poster Design", src: posterSmarana.url, h: "tall" },
+  { category: "Creative Design Work", title: "Plug'd — Geotag", tag: "Brand Creative", src: posterPlugd.url, h: "med" },
+  { category: "Creative Design Work", title: "Sia — Editorial", tag: "Behance Feature", src: posterSia.url, h: "tall" },
+  { category: "Creative Design Work", title: "Armchair Edit", tag: "AI Concept Poster", src: posterArmchair.url, h: "med" },
 ];
 
 const BRANDS: { name: string; sub?: string; className: string }[] = [
@@ -651,42 +556,30 @@ function VideoShowcase() {
                 transition={{ type: "spring", stiffness: 220, damping: 22 }}
                 className="relative w-full aspect-[9/16] rounded-[26px] overflow-hidden text-left border border-white/5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)] group-hover:shadow-[0_30px_80px_-20px_rgba(212,175,55,0.35)] transition-shadow duration-500"
               >
-                {/* video still — layered scene with bokeh */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${r.gradient}`} />
-                <div
-                  className="absolute -top-10 -left-10 w-2/3 h-2/3 rounded-full blur-3xl opacity-70"
-                  style={{ background: `radial-gradient(circle, ${r.accent}AA, transparent 65%)` }}
+                {/* Real video thumbnail */}
+                <img
+                  src={r.poster}
+                  alt={r.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  loading="lazy"
                 />
+                {/* accent wash for cohesion with palette */}
                 <div
-                  className="absolute bottom-0 right-0 w-3/4 h-3/4 rounded-full blur-3xl opacity-50"
-                  style={{ background: `radial-gradient(circle, ${r.accent}55, transparent 60%)` }}
+                  className="absolute inset-0 mix-blend-overlay opacity-30 pointer-events-none"
+                  style={{ background: `radial-gradient(circle at 30% 20%, ${r.accent}55, transparent 60%)` }}
                 />
-                {/* simulated subject silhouette */}
-                <div className="absolute inset-x-0 bottom-0 h-3/5">
-                  <div
-                    className="absolute left-1/2 -translate-x-1/2 bottom-[-15%] w-[60%] h-[120%] rounded-[50%] blur-[2px]"
-                    style={{ background: `linear-gradient(180deg, ${r.accent}33 0%, rgba(0,0,0,0.9) 70%)` }}
-                  />
-                </div>
                 {/* film grain */}
                 <div
-                  className="absolute inset-0 opacity-[0.12] mix-blend-overlay pointer-events-none"
+                  className="absolute inset-0 opacity-[0.10] mix-blend-overlay pointer-events-none"
                   style={{
                     backgroundImage:
                       "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), radial-gradient(rgba(255,255,255,0.4) 1px, transparent 1px)",
                     backgroundSize: "3px 3px, 5px 5px",
                   }}
                 />
-                {/* scanlines */}
-                <div
-                  className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none"
-                  style={{
-                    backgroundImage:
-                      "repeating-linear-gradient(0deg, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 1px, transparent 1px, transparent 3px)",
-                  }}
-                />
                 {/* vignette */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.65)_100%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(0,0,0,0.7)_100%)] pointer-events-none" />
+
 
                 {/* Top status row */}
                 <div className="absolute top-0 inset-x-0 p-3 flex items-center justify-between text-white/90 text-[10px] z-10">
@@ -721,7 +614,7 @@ function VideoShowcase() {
                     {r.category}
                   </div>
                   <div className="font-display text-lg text-white leading-tight">{r.title}</div>
-                  <div className="text-[11px] text-white/70 line-clamp-2 leading-snug mt-1.5">{r.caption}</div>
+                  
                 </div>
 
                 {/* timeline scrubber */}
@@ -763,38 +656,36 @@ function VideoShowcase() {
               <X className="w-5 h-5" />
             </button>
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.94, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              exit={{ scale: 0.94, opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
-              className={`relative aspect-[9/16] h-[85vh] max-w-full rounded-[36px] overflow-hidden border border-white/10 bg-gradient-to-br ${REELS[open].gradient}`}
+              className="relative aspect-[9/16] h-[85vh] max-w-full rounded-[36px] overflow-hidden border border-white/10 bg-black shadow-[0_30px_120px_-20px_rgba(0,0,0,0.9)]"
             >
-              <div
-                className="absolute inset-0 opacity-50 mix-blend-screen"
-                style={{
-                  backgroundImage: `radial-gradient(circle at 30% 20%, ${REELS[open].accent}66, transparent 60%), radial-gradient(circle at 70% 80%, ${REELS[open].accent}44, transparent 55%)`,
-                }}
+              <video
+                key={REELS[open].src}
+                src={REELS[open].src}
+                poster={REELS[open].poster}
+                autoPlay
+                controls
+                playsInline
+                loop
+                className="absolute inset-0 w-full h-full object-cover bg-black"
               />
-              <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">
-                <div className="text-7xl mb-6">{REELS[open].icon}</div>
+              <div className="absolute top-0 inset-x-0 p-4 flex items-center justify-between pointer-events-none z-10">
                 <div
-                  className="text-xs tracking-[0.4em] uppercase px-4 py-1.5 rounded-full border"
+                  className="text-[10px] tracking-[0.4em] uppercase px-3 py-1.5 rounded-full border bg-black/40 backdrop-blur-sm"
                   style={{ color: REELS[open].accent, borderColor: `${REELS[open].accent}55` }}
                 >
                   {REELS[open].category}
                 </div>
-                <div className="font-display text-4xl mt-6 text-white">{REELS[open].title}</div>
-                <div className="text-sm text-white/70 mt-3 max-w-xs">{REELS[open].caption}</div>
-                <div className="mt-8 inline-flex items-center gap-2 text-white/70 text-xs tracking-[0.3em] uppercase">
-                  <Play className="w-3.5 h-3.5 fill-current text-gold" />
-                  Sample portfolio reel
+                <div className="text-[10px] tracking-[0.3em] uppercase text-white/70 bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/10">
+                  {REELS[open].title}
                 </div>
               </div>
-              <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                <div className="text-xs text-white/60 text-center">Reel preview — full edit available on request</div>
-              </div>
             </motion.div>
+
           </motion.div>
         )}
       </AnimatePresence>
@@ -825,96 +716,31 @@ function DesignShowcase() {
                 transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
                 className="group block w-full mb-5 break-inside-avoid rounded-2xl overflow-hidden bg-card relative text-left border border-white/5 hover:border-gold/40 transition-colors"
               >
-                <div className={`relative w-full ${aspect} bg-gradient-to-br ${d.palette} overflow-hidden`}>
-                  {/* texture */}
-                  <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle at 20% 20%, white 1px, transparent 1px), radial-gradient(circle at 80% 70%, white 1px, transparent 1px)", backgroundSize: "24px 24px, 32px 32px" }} />
-                  {/* accent glow */}
-                  <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full blur-3xl opacity-40" style={{ background: d.accent }} />
-
-                  {/* mock creative layout */}
-                  <div className="relative h-full w-full p-5 flex flex-col justify-between">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] tracking-[0.2em] uppercase text-white/60">{d.tag}</span>
-                      <span className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-[10px] text-white/70">0{i + 1}</span>
-                    </div>
-
-                    <div className="flex-1 flex items-center justify-center my-3">
-                      {d.layout === "poster" && (
-                        <div className="text-center">
-                          <div className="text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: d.accent }}>presents</div>
-                          <div className="font-serif italic text-2xl md:text-3xl leading-tight text-white">{d.title.split(" ").slice(0, 2).join(" ")}</div>
-                          <div className="font-serif italic text-2xl md:text-3xl leading-tight" style={{ color: d.accent }}>{d.title.split(" ").slice(2).join(" ")}</div>
-                          <div className="w-12 h-px bg-white/30 mx-auto mt-3" />
-                        </div>
-                      )}
-                      {d.layout === "menu" && (
-                        <div className="w-full">
-                          <div className="font-serif text-xl text-white mb-3 text-center">{d.title}</div>
-                          {["Banana Leaf · 320", "Coastal Catch · 480", "Chettinad Special · 540"].map((row, idx) => (
-                            <div key={idx} className="flex justify-between text-[11px] text-white/70 border-b border-white/10 py-1.5">
-                              <span>{row.split(" · ")[0]}</span>
-                              <span style={{ color: d.accent }}>₹{row.split(" · ")[1]}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                      {d.layout === "fashion" && (
-                        <div className="text-center">
-                          <div className="text-[9px] tracking-[0.4em] uppercase text-white/50">FW · 2024</div>
-                          <div className="font-serif text-3xl md:text-4xl text-white mt-1">{d.client.split(" ")[0]}</div>
-                          <div className="text-[10px] tracking-[0.3em] uppercase mt-2" style={{ color: d.accent }}>{d.title}</div>
-                        </div>
-                      )}
-                      {d.layout === "brand" && (
-                        <div className="text-center">
-                          <div className="w-14 h-14 mx-auto rounded-full border-2 flex items-center justify-center mb-2" style={{ borderColor: d.accent }}>
-                            <span className="font-serif text-xl" style={{ color: d.accent }}>L</span>
-                          </div>
-                          <div className="text-[10px] tracking-[0.4em] uppercase text-white">LEVELUP</div>
-                          <div className="text-[9px] tracking-[0.3em] uppercase text-white/50 mt-1">HOTELS · EST 2021</div>
-                        </div>
-                      )}
-                      {d.layout === "carousel" && (
-                        <div className="w-full">
-                          <div className="text-[9px] tracking-[0.3em] uppercase text-white/50 mb-2">SWIPE →</div>
-                          <div className="font-serif text-2xl text-white leading-tight">{d.title}</div>
-                          <div className="flex gap-1 mt-3">
-                            {[0, 1, 2, 3, 4].map((s) => (
-                              <div key={s} className={`h-1 flex-1 rounded-full ${s === 0 ? "" : "bg-white/20"}`} style={s === 0 ? { background: d.accent } : {}} />
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                      {d.layout === "ad" && (
-                        <div>
-                          <div className="text-[9px] tracking-[0.3em] uppercase mb-2" style={{ color: d.accent }}>NOW LAUNCHING</div>
-                          <div className="font-serif text-2xl text-white leading-tight">{d.title}</div>
-                          <div className="mt-3 inline-block px-3 py-1.5 text-[10px] tracking-[0.2em] uppercase border" style={{ borderColor: d.accent, color: d.accent }}>Book a visit →</div>
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="flex items-end justify-between">
-                      <div>
-                        <div className="text-[9px] tracking-[0.3em] uppercase text-white/40">Client</div>
-                        <div className="text-xs text-white/80">{d.client}</div>
-                      </div>
-                      <div className="w-6 h-6 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
-                        <ArrowUpRight className="w-3 h-3 text-white/80" />
-                      </div>
-                    </div>
+                <div className={`relative w-full ${aspect} bg-black overflow-hidden`}>
+                  <img
+                    src={d.src}
+                    alt={d.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    loading="lazy"
+                  />
+                  {/* film grain */}
+                  <div
+                    className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none"
+                    style={{
+                      backgroundImage:
+                        "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), radial-gradient(rgba(255,255,255,0.4) 1px, transparent 1px)",
+                      backgroundSize: "3px 3px, 5px 5px",
+                    }}
+                  />
+                  {/* hover wash + caption (caption hidden until hover so we don't overlap baked-in artwork text) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <ArrowUpRight className="w-4 h-4 text-gold" />
                   </div>
-
-                  {/* hover overlay */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all" />
-                </div>
-
-                <div className="px-4 py-3 flex items-center justify-between bg-card">
-                  <div>
-                    <div className="text-[10px] tracking-[0.25em] uppercase text-gold/80">{d.category}</div>
-                    <div className="text-xs text-foreground/70 mt-0.5">{d.title}</div>
+                  <div className="absolute bottom-0 inset-x-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    <div className="text-[10px] tracking-[0.3em] uppercase text-gold/90">{d.tag}</div>
+                    <div className="font-display text-lg text-white mt-1 leading-tight">{d.title}</div>
                   </div>
-                  <span className="text-[10px] text-muted-foreground">Save</span>
                 </div>
               </motion.button>
             );
@@ -929,31 +755,33 @@ function DesignShowcase() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setOpen(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-6"
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-6"
           >
-            <button onClick={() => setOpen(null)} className="absolute top-6 right-6 w-12 h-12 glass rounded-full flex items-center justify-center">
+            <button onClick={() => setOpen(null)} className="absolute top-6 right-6 w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-gold hover:text-primary-foreground transition-all z-10">
               <X className="w-5 h-5" />
             </button>
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.94, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.94, opacity: 0 }}
+              transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
-              className={`relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br ${DESIGNS[open].palette} border border-white/10 p-8 flex flex-col justify-between`}
+              className="relative max-h-[90vh] max-w-[92vw] rounded-2xl overflow-hidden border border-white/10 bg-black shadow-[0_30px_120px_-20px_rgba(0,0,0,0.9)]"
             >
-              <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl opacity-40" style={{ background: DESIGNS[open].accent }} />
-              <div className="relative">
-                <div className="text-[10px] tracking-[0.3em] uppercase text-white/60">{DESIGNS[open].tag}</div>
-                <div className="font-serif italic text-4xl text-white mt-4 leading-tight">{DESIGNS[open].title}</div>
-              </div>
-              <div className="relative">
-                <div className="text-[10px] tracking-[0.3em] uppercase text-white/40">Client</div>
-                <div className="text-lg text-white">{DESIGNS[open].client}</div>
-                <div className="mt-3 text-[10px] tracking-[0.25em] uppercase" style={{ color: DESIGNS[open].accent }}>{DESIGNS[open].category}</div>
-                <div className="mt-4 text-[11px] text-white/50">Full case study available on request.</div>
+              <img
+                src={DESIGNS[open].src}
+                alt={DESIGNS[open].title}
+                className="block max-h-[90vh] max-w-[92vw] w-auto h-auto object-contain"
+              />
+              <div className="absolute top-0 inset-x-0 p-4 flex items-center justify-between bg-gradient-to-b from-black/70 to-transparent pointer-events-none">
+                <div className="text-[10px] tracking-[0.4em] uppercase text-gold">{DESIGNS[open].tag}</div>
+                <div className="text-[10px] tracking-[0.3em] uppercase text-white/80">{DESIGNS[open].title}</div>
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+
     </section>
   );
 }
