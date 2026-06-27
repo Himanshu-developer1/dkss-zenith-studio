@@ -10,6 +10,34 @@ import {
 import heroBg from "@/assets/hero-bg.jpg";
 import portrait from "@/assets/portrait.jpg";
 
+// Real creator assets (Drive → CDN)
+import aiAdset1 from "@/assets/portfolio/ai-adset-1.mp4.asset.json";
+import aiAdset1Thumb from "@/assets/portfolio/ai-adset-1-thumb.jpg.asset.json";
+import aiPackage from "@/assets/portfolio/ai-package.mp4.asset.json";
+import aiPackageThumb from "@/assets/portfolio/ai-package-thumb.jpg.asset.json";
+import aiReel1 from "@/assets/portfolio/ai-reel-1.mp4.asset.json";
+import aiReel1Thumb from "@/assets/portfolio/ai-reel-1-thumb.jpg.asset.json";
+import aiReel2 from "@/assets/portfolio/ai-reel-2.mp4.asset.json";
+import aiReel2Thumb from "@/assets/portfolio/ai-reel-2-thumb.jpg.asset.json";
+import aiSwag from "@/assets/portfolio/ai-swagcentral.mp4.asset.json";
+import aiSwagThumb from "@/assets/portfolio/ai-swagcentral-thumb.jpg.asset.json";
+import aiUntitled from "@/assets/portfolio/ai-untitled.mp4.asset.json";
+import aiUntitledThumb from "@/assets/portfolio/ai-untitled-thumb.jpg.asset.json";
+import fashionFreestyle from "@/assets/portfolio/fashion-freestyle.mp4.asset.json";
+import fashionFreestyleThumb from "@/assets/portfolio/fashion-freestyle-thumb.jpg.asset.json";
+import fashionPhoolini from "@/assets/portfolio/fashion-phoolini.mp4.asset.json";
+import fashionPhooliniThumb from "@/assets/portfolio/fashion-phoolini-thumb.jpg.asset.json";
+import fashionV1b from "@/assets/portfolio/fashion-video-1b.mp4.asset.json";
+import fashionV1bThumb from "@/assets/portfolio/fashion-video-1b-thumb.jpg.asset.json";
+import fashionV1c from "@/assets/portfolio/fashion-video-1c.mp4.asset.json";
+import fashionV1cThumb from "@/assets/portfolio/fashion-video-1c-thumb.jpg.asset.json";
+import fashionV3 from "@/assets/portfolio/fashion-video-3.mp4.asset.json";
+import fashionV3Thumb from "@/assets/portfolio/fashion-video-3-thumb.jpg.asset.json";
+import posterSmarana from "@/assets/portfolio/poster-smarana.jpg.asset.json";
+import posterPlugd from "@/assets/portfolio/poster-plugd.png.asset.json";
+import posterSia from "@/assets/portfolio/poster-sia.jpg.asset.json";
+import posterArmchair from "@/assets/portfolio/poster-armchair.jpg.asset.json";
+
 export const Route = createFileRoute("/")({
   component: Index,
 });
