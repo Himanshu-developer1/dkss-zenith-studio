@@ -656,38 +656,36 @@ function VideoShowcase() {
               <X className="w-5 h-5" />
             </button>
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.94, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              exit={{ scale: 0.94, opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
-              className={`relative aspect-[9/16] h-[85vh] max-w-full rounded-[36px] overflow-hidden border border-white/10 bg-gradient-to-br ${REELS[open].gradient}`}
+              className="relative aspect-[9/16] h-[85vh] max-w-full rounded-[36px] overflow-hidden border border-white/10 bg-black shadow-[0_30px_120px_-20px_rgba(0,0,0,0.9)]"
             >
-              <div
-                className="absolute inset-0 opacity-50 mix-blend-screen"
-                style={{
-                  backgroundImage: `radial-gradient(circle at 30% 20%, ${REELS[open].accent}66, transparent 60%), radial-gradient(circle at 70% 80%, ${REELS[open].accent}44, transparent 55%)`,
-                }}
+              <video
+                key={REELS[open].src}
+                src={REELS[open].src}
+                poster={REELS[open].poster}
+                autoPlay
+                controls
+                playsInline
+                loop
+                className="absolute inset-0 w-full h-full object-cover bg-black"
               />
-              <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">
-                <div className="text-7xl mb-6">{REELS[open].icon}</div>
+              <div className="absolute top-0 inset-x-0 p-4 flex items-center justify-between pointer-events-none z-10">
                 <div
-                  className="text-xs tracking-[0.4em] uppercase px-4 py-1.5 rounded-full border"
+                  className="text-[10px] tracking-[0.4em] uppercase px-3 py-1.5 rounded-full border bg-black/40 backdrop-blur-sm"
                   style={{ color: REELS[open].accent, borderColor: `${REELS[open].accent}55` }}
                 >
                   {REELS[open].category}
                 </div>
-                <div className="font-display text-4xl mt-6 text-white">{REELS[open].title}</div>
-                <div className="text-sm text-white/70 mt-3 max-w-xs">{REELS[open].caption}</div>
-                <div className="mt-8 inline-flex items-center gap-2 text-white/70 text-xs tracking-[0.3em] uppercase">
-                  <Play className="w-3.5 h-3.5 fill-current text-gold" />
-                  Sample portfolio reel
+                <div className="text-[10px] tracking-[0.3em] uppercase text-white/70 bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/10">
+                  {REELS[open].title}
                 </div>
               </div>
-              <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                <div className="text-xs text-white/60 text-center">Reel preview — full edit available on request</div>
-              </div>
             </motion.div>
+
           </motion.div>
         )}
       </AnimatePresence>
