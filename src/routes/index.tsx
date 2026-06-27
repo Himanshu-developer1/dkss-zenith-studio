@@ -716,96 +716,31 @@ function DesignShowcase() {
                 transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
                 className="group block w-full mb-5 break-inside-avoid rounded-2xl overflow-hidden bg-card relative text-left border border-white/5 hover:border-gold/40 transition-colors"
               >
-                <div className={`relative w-full ${aspect} bg-gradient-to-br ${d.palette} overflow-hidden`}>
-                  {/* texture */}
-                  <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle at 20% 20%, white 1px, transparent 1px), radial-gradient(circle at 80% 70%, white 1px, transparent 1px)", backgroundSize: "24px 24px, 32px 32px" }} />
-                  {/* accent glow */}
-                  <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full blur-3xl opacity-40" style={{ background: d.accent }} />
-
-                  {/* mock creative layout */}
-                  <div className="relative h-full w-full p-5 flex flex-col justify-between">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] tracking-[0.2em] uppercase text-white/60">{d.tag}</span>
-                      <span className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-[10px] text-white/70">0{i + 1}</span>
-                    </div>
-
-                    <div className="flex-1 flex items-center justify-center my-3">
-                      {d.layout === "poster" && (
-                        <div className="text-center">
-                          <div className="text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: d.accent }}>presents</div>
-                          <div className="font-serif italic text-2xl md:text-3xl leading-tight text-white">{d.title.split(" ").slice(0, 2).join(" ")}</div>
-                          <div className="font-serif italic text-2xl md:text-3xl leading-tight" style={{ color: d.accent }}>{d.title.split(" ").slice(2).join(" ")}</div>
-                          <div className="w-12 h-px bg-white/30 mx-auto mt-3" />
-                        </div>
-                      )}
-                      {d.layout === "menu" && (
-                        <div className="w-full">
-                          <div className="font-serif text-xl text-white mb-3 text-center">{d.title}</div>
-                          {["Banana Leaf · 320", "Coastal Catch · 480", "Chettinad Special · 540"].map((row, idx) => (
-                            <div key={idx} className="flex justify-between text-[11px] text-white/70 border-b border-white/10 py-1.5">
-                              <span>{row.split(" · ")[0]}</span>
-                              <span style={{ color: d.accent }}>₹{row.split(" · ")[1]}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                      {d.layout === "fashion" && (
-                        <div className="text-center">
-                          <div className="text-[9px] tracking-[0.4em] uppercase text-white/50">FW · 2024</div>
-                          <div className="font-serif text-3xl md:text-4xl text-white mt-1">{d.client.split(" ")[0]}</div>
-                          <div className="text-[10px] tracking-[0.3em] uppercase mt-2" style={{ color: d.accent }}>{d.title}</div>
-                        </div>
-                      )}
-                      {d.layout === "brand" && (
-                        <div className="text-center">
-                          <div className="w-14 h-14 mx-auto rounded-full border-2 flex items-center justify-center mb-2" style={{ borderColor: d.accent }}>
-                            <span className="font-serif text-xl" style={{ color: d.accent }}>L</span>
-                          </div>
-                          <div className="text-[10px] tracking-[0.4em] uppercase text-white">LEVELUP</div>
-                          <div className="text-[9px] tracking-[0.3em] uppercase text-white/50 mt-1">HOTELS · EST 2021</div>
-                        </div>
-                      )}
-                      {d.layout === "carousel" && (
-                        <div className="w-full">
-                          <div className="text-[9px] tracking-[0.3em] uppercase text-white/50 mb-2">SWIPE →</div>
-                          <div className="font-serif text-2xl text-white leading-tight">{d.title}</div>
-                          <div className="flex gap-1 mt-3">
-                            {[0, 1, 2, 3, 4].map((s) => (
-                              <div key={s} className={`h-1 flex-1 rounded-full ${s === 0 ? "" : "bg-white/20"}`} style={s === 0 ? { background: d.accent } : {}} />
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                      {d.layout === "ad" && (
-                        <div>
-                          <div className="text-[9px] tracking-[0.3em] uppercase mb-2" style={{ color: d.accent }}>NOW LAUNCHING</div>
-                          <div className="font-serif text-2xl text-white leading-tight">{d.title}</div>
-                          <div className="mt-3 inline-block px-3 py-1.5 text-[10px] tracking-[0.2em] uppercase border" style={{ borderColor: d.accent, color: d.accent }}>Book a visit →</div>
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="flex items-end justify-between">
-                      <div>
-                        <div className="text-[9px] tracking-[0.3em] uppercase text-white/40">Client</div>
-                        <div className="text-xs text-white/80">{d.client}</div>
-                      </div>
-                      <div className="w-6 h-6 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
-                        <ArrowUpRight className="w-3 h-3 text-white/80" />
-                      </div>
-                    </div>
+                <div className={`relative w-full ${aspect} bg-black overflow-hidden`}>
+                  <img
+                    src={d.src}
+                    alt={d.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    loading="lazy"
+                  />
+                  {/* film grain */}
+                  <div
+                    className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none"
+                    style={{
+                      backgroundImage:
+                        "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), radial-gradient(rgba(255,255,255,0.4) 1px, transparent 1px)",
+                      backgroundSize: "3px 3px, 5px 5px",
+                    }}
+                  />
+                  {/* hover wash + arrow */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/0 to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ArrowUpRight className="w-4 h-4 text-gold" />
                   </div>
-
-                  {/* hover overlay */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all" />
-                </div>
-
-                <div className="px-4 py-3 flex items-center justify-between bg-card">
-                  <div>
-                    <div className="text-[10px] tracking-[0.25em] uppercase text-gold/80">{d.category}</div>
-                    <div className="text-xs text-foreground/70 mt-0.5">{d.title}</div>
+                  <div className="absolute bottom-0 inset-x-0 p-4">
+                    <div className="text-[10px] tracking-[0.3em] uppercase text-gold/90">{d.tag}</div>
+                    <div className="font-display text-lg text-white mt-1 leading-tight">{d.title}</div>
                   </div>
-                  <span className="text-[10px] text-muted-foreground">Save</span>
                 </div>
               </motion.button>
             );
@@ -820,31 +755,33 @@ function DesignShowcase() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setOpen(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-6"
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-6"
           >
-            <button onClick={() => setOpen(null)} className="absolute top-6 right-6 w-12 h-12 glass rounded-full flex items-center justify-center">
+            <button onClick={() => setOpen(null)} className="absolute top-6 right-6 w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-gold hover:text-primary-foreground transition-all z-10">
               <X className="w-5 h-5" />
             </button>
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.94, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.94, opacity: 0 }}
+              transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
-              className={`relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br ${DESIGNS[open].palette} border border-white/10 p-8 flex flex-col justify-between`}
+              className="relative max-h-[90vh] max-w-[92vw] rounded-2xl overflow-hidden border border-white/10 bg-black shadow-[0_30px_120px_-20px_rgba(0,0,0,0.9)]"
             >
-              <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl opacity-40" style={{ background: DESIGNS[open].accent }} />
-              <div className="relative">
-                <div className="text-[10px] tracking-[0.3em] uppercase text-white/60">{DESIGNS[open].tag}</div>
-                <div className="font-serif italic text-4xl text-white mt-4 leading-tight">{DESIGNS[open].title}</div>
-              </div>
-              <div className="relative">
-                <div className="text-[10px] tracking-[0.3em] uppercase text-white/40">Client</div>
-                <div className="text-lg text-white">{DESIGNS[open].client}</div>
-                <div className="mt-3 text-[10px] tracking-[0.25em] uppercase" style={{ color: DESIGNS[open].accent }}>{DESIGNS[open].category}</div>
-                <div className="mt-4 text-[11px] text-white/50">Full case study available on request.</div>
+              <img
+                src={DESIGNS[open].src}
+                alt={DESIGNS[open].title}
+                className="block max-h-[90vh] max-w-[92vw] w-auto h-auto object-contain"
+              />
+              <div className="absolute top-0 inset-x-0 p-4 flex items-center justify-between bg-gradient-to-b from-black/70 to-transparent pointer-events-none">
+                <div className="text-[10px] tracking-[0.4em] uppercase text-gold">{DESIGNS[open].tag}</div>
+                <div className="text-[10px] tracking-[0.3em] uppercase text-white/80">{DESIGNS[open].title}</div>
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+
     </section>
   );
 }
