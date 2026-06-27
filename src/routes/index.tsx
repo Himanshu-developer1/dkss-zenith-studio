@@ -45,54 +45,17 @@ export const Route = createFileRoute("/")({
 const ROLES = ["Video Editor", "Graphic Designer", "Social Media Manager", "Creative Strategist"];
 
 const REELS = [
-  {
-    category: "Real Estate Videos",
-    title: "Skyline Residences",
-    caption: "Cinematic walkthrough · drone establishing · interior cuts",
-    gradient: "from-[#0f1a2e] via-[#142436] to-[#0b0b0b]",
-    accent: "#9DB4D4",
-    icon: "🏙",
-  },
-  {
-    category: "Fashion Brand Ads",
-    title: "Editorial Drop",
-    caption: "Runway cuts · beat-matched transitions · lookbook film",
-    gradient: "from-[#2a1810] via-[#3d1f1a] to-[#0b0b0b]",
-    accent: "#E8B4A0",
-    icon: "👗",
-  },
-  {
-    category: "Organic Farming Videos",
-    title: "Field to Harvest",
-    caption: "Slow-mo b-roll · earthy color grade · narrative voiceover",
-    gradient: "from-[#1a2410] via-[#243018] to-[#0b0b0b]",
-    accent: "#B8D48A",
-    icon: "🌾",
-  },
-  {
-    category: "Restaurant / Cafe Ads",
-    title: "House Specials",
-    caption: "Plating sequence · slow-mo pours · ASMR food cuts",
-    gradient: "from-[#2e1a0f] via-[#3d2410] to-[#0b0b0b]",
-    accent: "#E8B547",
-    icon: "🍽",
-  },
-  {
-    category: "Product Commercials",
-    title: "Hero Drop Film",
-    caption: "Macro shots · kinetic type · studio-lit product edit",
-    gradient: "from-[#2a1a2e] via-[#1f1430] to-[#0b0b0b]",
-    accent: "#C9A227",
-    icon: "✨",
-  },
-  {
-    category: "AI Generated Ads",
-    title: "Generative Spot",
-    caption: "Sora + Runway pipeline · surreal scene build · neural grade",
-    gradient: "from-[#1a1a2e] via-[#2a1f3d] to-[#0b0b0b]",
-    accent: "#D4A0E8",
-    icon: "🤖",
-  },
+  { category: "Fashion Brand Ads", title: "Phoolini — Editorial Cut", src: fashionPhoolini.url, poster: fashionPhooliniThumb.url, accent: "#E8B4A0" },
+  { category: "Fashion Brand Ads", title: "Freestyle v2", src: fashionFreestyle.url, poster: fashionFreestyleThumb.url, accent: "#E8B4A0" },
+  { category: "Fashion Brand Ads", title: "Lookbook Film 03", src: fashionV3.url, poster: fashionV3Thumb.url, accent: "#E8B4A0" },
+  { category: "Fashion Brand Ads", title: "Lookbook Film 01 / B", src: fashionV1b.url, poster: fashionV1bThumb.url, accent: "#E8B4A0" },
+  { category: "Fashion Brand Ads", title: "Lookbook Film 01 / C", src: fashionV1c.url, poster: fashionV1cThumb.url, accent: "#E8B4A0" },
+  { category: "AI Generated Ads", title: "Swagcentral — Generative Spot", src: aiSwag.url, poster: aiSwagThumb.url, accent: "#D4A0E8" },
+  { category: "AI Generated Ads", title: "Untitled Design — Surreal Build", src: aiUntitled.url, poster: aiUntitledThumb.url, accent: "#D4A0E8" },
+  { category: "AI Generated Ads", title: "AI Reel 01", src: aiReel1.url, poster: aiReel1Thumb.url, accent: "#D4A0E8" },
+  { category: "AI Generated Ads", title: "AI Reel 02", src: aiReel2.url, poster: aiReel2Thumb.url, accent: "#D4A0E8" },
+  { category: "AI Generated Ads", title: "Ad Set 01", src: aiAdset1.url, poster: aiAdset1Thumb.url, accent: "#D4A0E8" },
+  { category: "AI Generated Ads", title: "Package — Concept Ad", src: aiPackage.url, poster: aiPackageThumb.url, accent: "#D4A0E8" },
 ];
 
 const DESIGNS = [
