@@ -556,42 +556,30 @@ function VideoShowcase() {
                 transition={{ type: "spring", stiffness: 220, damping: 22 }}
                 className="relative w-full aspect-[9/16] rounded-[26px] overflow-hidden text-left border border-white/5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)] group-hover:shadow-[0_30px_80px_-20px_rgba(212,175,55,0.35)] transition-shadow duration-500"
               >
-                {/* video still — layered scene with bokeh */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${r.gradient}`} />
-                <div
-                  className="absolute -top-10 -left-10 w-2/3 h-2/3 rounded-full blur-3xl opacity-70"
-                  style={{ background: `radial-gradient(circle, ${r.accent}AA, transparent 65%)` }}
+                {/* Real video thumbnail */}
+                <img
+                  src={r.poster}
+                  alt={r.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  loading="lazy"
                 />
+                {/* accent wash for cohesion with palette */}
                 <div
-                  className="absolute bottom-0 right-0 w-3/4 h-3/4 rounded-full blur-3xl opacity-50"
-                  style={{ background: `radial-gradient(circle, ${r.accent}55, transparent 60%)` }}
+                  className="absolute inset-0 mix-blend-overlay opacity-30 pointer-events-none"
+                  style={{ background: `radial-gradient(circle at 30% 20%, ${r.accent}55, transparent 60%)` }}
                 />
-                {/* simulated subject silhouette */}
-                <div className="absolute inset-x-0 bottom-0 h-3/5">
-                  <div
-                    className="absolute left-1/2 -translate-x-1/2 bottom-[-15%] w-[60%] h-[120%] rounded-[50%] blur-[2px]"
-                    style={{ background: `linear-gradient(180deg, ${r.accent}33 0%, rgba(0,0,0,0.9) 70%)` }}
-                  />
-                </div>
                 {/* film grain */}
                 <div
-                  className="absolute inset-0 opacity-[0.12] mix-blend-overlay pointer-events-none"
+                  className="absolute inset-0 opacity-[0.10] mix-blend-overlay pointer-events-none"
                   style={{
                     backgroundImage:
                       "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), radial-gradient(rgba(255,255,255,0.4) 1px, transparent 1px)",
                     backgroundSize: "3px 3px, 5px 5px",
                   }}
                 />
-                {/* scanlines */}
-                <div
-                  className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none"
-                  style={{
-                    backgroundImage:
-                      "repeating-linear-gradient(0deg, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 1px, transparent 1px, transparent 3px)",
-                  }}
-                />
                 {/* vignette */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.65)_100%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(0,0,0,0.7)_100%)] pointer-events-none" />
+
 
                 {/* Top status row */}
                 <div className="absolute top-0 inset-x-0 p-3 flex items-center justify-between text-white/90 text-[10px] z-10">
