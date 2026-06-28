@@ -8,35 +8,35 @@ import {
 } from "lucide-react";
 
 import heroBg from "@/assets/hero-bg.jpg";
-import portraitDeepak from "@/assets/portrait-deepak.jpg.asset.json";
 
-// Real creator assets (Drive → CDN)
-import aiAdset1 from "@/assets/portfolio/ai-adset-1.mp4.asset.json";
-import aiAdset1Thumb from "@/assets/portfolio/ai-adset-1-thumb.jpg.asset.json";
-import aiPackage from "@/assets/portfolio/ai-package.mp4.asset.json";
-import aiPackageThumb from "@/assets/portfolio/ai-package-thumb.jpg.asset.json";
-import aiReel1 from "@/assets/portfolio/ai-reel-1.mp4.asset.json";
-import aiReel1Thumb from "@/assets/portfolio/ai-reel-1-thumb.jpg.asset.json";
-import aiReel2 from "@/assets/portfolio/ai-reel-2.mp4.asset.json";
-import aiReel2Thumb from "@/assets/portfolio/ai-reel-2-thumb.jpg.asset.json";
-import aiSwag from "@/assets/portfolio/ai-swagcentral.mp4.asset.json";
-import aiSwagThumb from "@/assets/portfolio/ai-swagcentral-thumb.jpg.asset.json";
-import aiUntitled from "@/assets/portfolio/ai-untitled.mp4.asset.json";
-import aiUntitledThumb from "@/assets/portfolio/ai-untitled-thumb.jpg.asset.json";
-import fashionFreestyle from "@/assets/portfolio/fashion-freestyle.mp4.asset.json";
-import fashionFreestyleThumb from "@/assets/portfolio/fashion-freestyle-thumb.jpg.asset.json";
-import fashionPhoolini from "@/assets/portfolio/fashion-phoolini.mp4.asset.json";
-import fashionPhooliniThumb from "@/assets/portfolio/fashion-phoolini-thumb.jpg.asset.json";
-import fashionV1b from "@/assets/portfolio/fashion-video-1b.mp4.asset.json";
-import fashionV1bThumb from "@/assets/portfolio/fashion-video-1b-thumb.jpg.asset.json";
-import fashionV1c from "@/assets/portfolio/fashion-video-1c.mp4.asset.json";
-import fashionV1cThumb from "@/assets/portfolio/fashion-video-1c-thumb.jpg.asset.json";
-import fashionV3 from "@/assets/portfolio/fashion-video-3.mp4.asset.json";
-import fashionV3Thumb from "@/assets/portfolio/fashion-video-3-thumb.jpg.asset.json";
-import posterSmarana from "@/assets/portfolio/poster-smarana.jpg.asset.json";
-import posterPlugd from "@/assets/portfolio/poster-plugd.png.asset.json";
-import posterSia from "@/assets/portfolio/poster-sia.jpg.asset.json";
-import posterArmchair from "@/assets/portfolio/poster-armchair.jpg.asset.json";
+// Real creator assets — served from /public so they ship with the repo (Vercel-friendly)
+const portraitDeepak = { url: "/images/portrait-deepak.jpg" };
+const aiAdset1 = { url: "/videos/ai-adset-1.mp4" };
+const aiAdset1Thumb = { url: "/images/ai-adset-1-thumb.jpg" };
+const aiPackage = { url: "/videos/ai-package.mp4" };
+const aiPackageThumb = { url: "/images/ai-package-thumb.jpg" };
+const aiReel1 = { url: "/videos/ai-reel-1.mp4" };
+const aiReel1Thumb = { url: "/images/ai-reel-1-thumb.jpg" };
+const aiReel2 = { url: "/videos/ai-reel-2.mp4" };
+const aiReel2Thumb = { url: "/images/ai-reel-2-thumb.jpg" };
+const aiSwag = { url: "/videos/ai-swagcentral.mp4" };
+const aiSwagThumb = { url: "/images/ai-swagcentral-thumb.jpg" };
+const aiUntitled = { url: "/videos/ai-untitled.mp4" };
+const aiUntitledThumb = { url: "/images/ai-untitled-thumb.jpg" };
+const fashionFreestyle = { url: "/videos/fashion-freestyle.mp4" };
+const fashionFreestyleThumb = { url: "/images/fashion-freestyle-thumb.jpg" };
+const fashionPhoolini = { url: "/videos/fashion-phoolini.mp4" };
+const fashionPhooliniThumb = { url: "/images/fashion-phoolini-thumb.jpg" };
+const fashionV1b = { url: "/videos/fashion-video-1b.mp4" };
+const fashionV1bThumb = { url: "/images/fashion-video-1b-thumb.jpg" };
+const fashionV1c = { url: "/videos/fashion-video-1c.mp4" };
+const fashionV1cThumb = { url: "/images/fashion-video-1c-thumb.jpg" };
+const fashionV3 = { url: "/videos/fashion-video-3.mp4" };
+const fashionV3Thumb = { url: "/images/fashion-video-3-thumb.jpg" };
+const posterSmarana = { url: "/images/poster-smarana.jpg" };
+const posterPlugd = { url: "/images/poster-plugd.png" };
+const posterSia = { url: "/images/poster-sia.jpg" };
+const posterArmchair = { url: "/images/poster-armchair.jpg" };
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -64,6 +64,7 @@ const DESIGNS = [
   { category: "Creative Design Work", title: "Sia — Editorial", tag: "Behance Feature", src: posterSia.url, h: "tall" },
   { category: "Creative Design Work", title: "Armchair Edit", tag: "AI Concept Poster", src: posterArmchair.url, h: "med" },
 ];
+
 
 const BRANDS: { name: string; sub?: string; className: string }[] = [
   { name: "Barista", className: "font-display italic text-3xl tracking-tight" },
