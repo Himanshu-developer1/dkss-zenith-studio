@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 import heroBg from "@/assets/hero-bg.jpg";
-import portrait from "@/assets/portrait.jpg";
+import portraitDeepak from "@/assets/portrait-deepak.jpg.asset.json";
 
 // Real creator assets (Drive → CDN)
 import aiAdset1 from "@/assets/portfolio/ai-adset-1.mp4.asset.json";
@@ -956,11 +956,9 @@ function Tools() {
 
 function Contact() {
   const links = [
-    { icon: Mail, label: "Email", value: "deepak.surya@studio.com", href: "mailto:deepak.surya@studio.com" },
-    { icon: Phone, label: "Phone", value: "+91 98XXX XXXXX", href: "tel:+91" },
-    { icon: Instagram, label: "Instagram", value: "@deepakkumarsurya", href: "#" },
-    { icon: Linkedin, label: "LinkedIn", value: "in/deepakkumarsurya", href: "#" },
-    { icon: MessageCircle, label: "WhatsApp", value: "Chat directly", href: "#" },
+    { icon: Mail, label: "Email", value: "deepakkumarsinghsurya@gmail.com", href: "mailto:deepakkumarsinghsurya@gmail.com" },
+    { icon: Phone, label: "Phone", value: "+91 8400510226", href: "tel:+918400510226" },
+    { icon: MessageCircle, label: "WhatsApp", value: "Chat directly", href: "https://wa.me/918400510226" },
   ];
   return (
     <section id="contact" className="relative py-32 px-6 overflow-hidden">
@@ -979,23 +977,23 @@ function Contact() {
             <p className="mt-6 text-lg text-muted-foreground font-light max-w-md">
               Available for select brand collaborations, retainer partnerships and creative direction projects.
             </p>
-            <a href="mailto:deepak.surya@studio.com" className="mt-10 inline-flex items-center gap-3 bg-gold text-primary-foreground px-8 py-4 rounded-full font-medium hover:shadow-[var(--shadow-gold)] transition-all">
+            <a href="https://wa.me/918400510226" className="mt-10 inline-flex items-center gap-3 bg-gold text-primary-foreground px-8 py-4 rounded-full font-medium hover:shadow-[var(--shadow-gold)] transition-all">
               Start a Project <ArrowUpRight className="w-4 h-4" />
             </a>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="space-y-3"
+            className="space-y-4"
           >
-            <div className="relative rounded-2xl overflow-hidden mb-6 aspect-[4/5] max-w-sm">
-              <img src={portrait} alt="Deepak Kumar Singh Surya" className="w-full h-full object-cover" loading="lazy" width={1024} height={1280} />
+            <div className="relative rounded-2xl overflow-hidden mb-8 aspect-[4/5] max-w-sm">
+              <img src={portraitDeepak.url} alt="Deepak Kumar Singh Surya" className="w-full h-full object-cover" loading="lazy" width={1024} height={1280} />
               <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
             </div>
             {links.map((l) => {
               const Icon = l.icon;
               return (
-                <a key={l.label} href={l.href}
+                <a key={l.label} href={l.href} target={l.href.startsWith("http") ? "_blank" : undefined} rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="group flex items-center gap-4 p-5 rounded-xl glass hover:border-gold/30 transition-all"
                 >
                   <div className="w-10 h-10 rounded-lg glass-gold flex items-center justify-center">
