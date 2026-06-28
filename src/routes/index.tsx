@@ -988,9 +988,9 @@ function Contact() {
             <p className="mt-6 text-lg text-muted-foreground font-light max-w-md">
               Available for select brand collaborations, retainer partnerships and creative direction projects.
             </p>
-            <a href="https://wa.me/918400510226" className="mt-10 inline-flex items-center gap-3 bg-gold text-primary-foreground px-8 py-4 rounded-full font-medium hover:shadow-[var(--shadow-gold)] transition-all">
+            <button onClick={scrollToContact} className="mt-10 inline-flex items-center gap-3 bg-gold text-primary-foreground px-8 py-4 rounded-full font-medium hover:shadow-[var(--shadow-gold)] transition-all cursor-pointer">
               Start a Project <ArrowUpRight className="w-4 h-4" />
-            </a>
+            </button>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
