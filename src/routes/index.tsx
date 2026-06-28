@@ -955,11 +955,22 @@ function Tools() {
 }
 
 function Contact() {
+  const [focused, setFocused] = useState(false);
   const links = [
     { icon: Mail, label: "Email", value: "deepakkumarsinghsurya@gmail.com", href: "mailto:deepakkumarsinghsurya@gmail.com" },
     { icon: Phone, label: "Phone", value: "+91 8400510226", href: "tel:+918400510226" },
     { icon: MessageCircle, label: "WhatsApp", value: "Chat directly", href: "https://wa.me/918400510226" },
   ];
+
+  const scrollToContact = () => {
+    const el = document.getElementById("contact");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => setFocused(true), 600);
+      setTimeout(() => setFocused(false), 2000);
+    }
+  };
+
   return (
     <section id="contact" className="relative py-32 px-6 overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -977,14 +988,14 @@ function Contact() {
             <p className="mt-6 text-lg text-muted-foreground font-light max-w-md">
               Available for select brand collaborations, retainer partnerships and creative direction projects.
             </p>
-            <a href="https://wa.me/918400510226" className="mt-10 inline-flex items-center gap-3 bg-gold text-primary-foreground px-8 py-4 rounded-full font-medium hover:shadow-[var(--shadow-gold)] transition-all">
+            <button onClick={scrollToContact} className="mt-10 inline-flex items-center gap-3 bg-gold text-primary-foreground px-8 py-4 rounded-full font-medium hover:shadow-[var(--shadow-gold)] transition-all cursor-pointer">
               Start a Project <ArrowUpRight className="w-4 h-4" />
-            </a>
+            </button>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="space-y-4"
+            className={`space-y-4 transition-all duration-700 ${focused ? "rounded-2xl ring-1 ring-gold/40 bg-gold/[0.03] p-4 -m-4" : ""}`}
           >
             <div className="relative rounded-2xl overflow-hidden mb-8 aspect-[4/5] max-w-sm">
               <img src={portraitDeepak.url} alt="Deepak Kumar Singh Surya" className="w-full h-full object-cover" loading="lazy" width={1024} height={1280} />
