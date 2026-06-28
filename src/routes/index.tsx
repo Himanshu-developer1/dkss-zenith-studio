@@ -955,11 +955,22 @@ function Tools() {
 }
 
 function Contact() {
+  const [focused, setFocused] = useState(false);
   const links = [
     { icon: Mail, label: "Email", value: "deepakkumarsinghsurya@gmail.com", href: "mailto:deepakkumarsinghsurya@gmail.com" },
     { icon: Phone, label: "Phone", value: "+91 8400510226", href: "tel:+918400510226" },
     { icon: MessageCircle, label: "WhatsApp", value: "Chat directly", href: "https://wa.me/918400510226" },
   ];
+
+  const scrollToContact = () => {
+    const el = document.getElementById("contact");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => setFocused(true), 600);
+      setTimeout(() => setFocused(false), 2000);
+    }
+  };
+
   return (
     <section id="contact" className="relative py-32 px-6 overflow-hidden">
       <div className="absolute inset-0 -z-10">
