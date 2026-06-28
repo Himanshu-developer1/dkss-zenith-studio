@@ -995,7 +995,7 @@ function Contact() {
           <motion.div
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="space-y-4"
+            className={`space-y-4 transition-all duration-700 ${focused ? "rounded-2xl ring-1 ring-gold/40 bg-gold/[0.03] p-4 -m-4" : ""}`}
           >
             <div className="relative rounded-2xl overflow-hidden mb-8 aspect-[4/5] max-w-sm">
               <img src={portraitDeepak.url} alt="Deepak Kumar Singh Surya" className="w-full h-full object-cover" loading="lazy" width={1024} height={1280} />
