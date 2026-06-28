@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 import heroBg from "@/assets/hero-bg.jpg";
-import portrait from "@/assets/portrait.jpg";
+import portraitDeepak from "@/assets/portrait-deepak.jpg.asset.json";
 
 // Real creator assets (Drive → CDN)
 import aiAdset1 from "@/assets/portfolio/ai-adset-1.mp4.asset.json";
