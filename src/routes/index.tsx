@@ -11,32 +11,25 @@ import heroBg from "@/assets/hero-bg.jpg";
 
 // Real creator assets — served from /public so they ship with the repo (Vercel-friendly)
 const portraitDeepak = { url: "/images/portrait-deepak.jpg" };
-const aiAdset1 = { url: "/videos/ai-adset-1.mp4" };
-const aiAdset1Thumb = { url: "/images/ai-adset-1-thumb.jpg" };
-const aiPackage = { url: "/videos/ai-package.mp4" };
-const aiPackageThumb = { url: "/images/ai-package-thumb.jpg" };
-const aiReel1 = { url: "/videos/ai-reel-1.mp4" };
-const aiReel1Thumb = { url: "/images/ai-reel-1-thumb.jpg" };
-const aiReel2 = { url: "/videos/ai-reel-2.mp4" };
-const aiReel2Thumb = { url: "/images/ai-reel-2-thumb.jpg" };
-const aiSwag = { url: "/videos/ai-swagcentral.mp4" };
-const aiSwagThumb = { url: "/images/ai-swagcentral-thumb.jpg" };
-const aiUntitled = { url: "/videos/ai-untitled.mp4" };
-const aiUntitledThumb = { url: "/images/ai-untitled-thumb.jpg" };
-const fashionFreestyle = { url: "/videos/fashion-freestyle.mp4" };
-const fashionFreestyleThumb = { url: "/images/fashion-freestyle-thumb.jpg" };
-const fashionPhoolini = { url: "/videos/fashion-phoolini.mp4" };
-const fashionPhooliniThumb = { url: "/images/fashion-phoolini-thumb.jpg" };
-const fashionV1b = { url: "/videos/fashion-video-1b.mp4" };
-const fashionV1bThumb = { url: "/images/fashion-video-1b-thumb.jpg" };
-const fashionV1c = { url: "/videos/fashion-video-1c.mp4" };
-const fashionV1cThumb = { url: "/images/fashion-video-1c-thumb.jpg" };
-const fashionV3 = { url: "/videos/fashion-video-3.mp4" };
-const fashionV3Thumb = { url: "/images/fashion-video-3-thumb.jpg" };
-const posterSmarana = { url: "/images/poster-smarana.jpg" };
-const posterPlugd = { url: "/images/poster-plugd.png" };
-const posterSia = { url: "/images/poster-sia.jpg" };
-const posterArmchair = { url: "/images/poster-armchair.jpg" };
+
+// Reels sourced from the creator's Drive folder
+const vBelt = { url: "/videos/belt.mp4", thumb: "/images/belt-thumb.jpg" };
+const vJewellery = { url: "/videos/jewellery-1.mp4", thumb: "/images/jewellery-1-thumb.jpg" };
+const vCurryKing = { url: "/videos/curry-king.mp4", thumb: "/images/curry-king-thumb.jpg" };
+const vDivine = { url: "/videos/divine.mp4", thumb: "/images/divine-thumb.jpg" };
+const vDivinePeaks = { url: "/videos/divine-peaks.mp4", thumb: "/images/divine-peaks-thumb.jpg" };
+const vLevelup = { url: "/videos/levelup-travels.mp4", thumb: "/images/levelup-travels-thumb.jpg" };
+const vLoveChahal = { url: "/videos/lovechahal.mp4", thumb: "/images/lovechahal-thumb.jpg" };
+const vUntitled = { url: "/videos/untitled-design.mp4", thumb: "/images/untitled-design-thumb.jpg" };
+const vLifestyle = { url: "/videos/lifestyle-1.mp4", thumb: "/images/lifestyle-1-thumb.jpg" };
+
+// Design / poster work — from the Drive "Logos" folder
+const posterLevelup = { url: "/images/poster-levelup.png" };
+const posterLogos1 = { url: "/images/poster-logos-1.jpg" };
+const posterLogos2 = { url: "/images/poster-logos-2.png" };
+const posterLogos3 = { url: "/images/poster-logos-3.png" };
+const posterLogos4 = { url: "/images/poster-logos-4.png" };
+const posterLogos5 = { url: "/images/poster-logos-5.png" };
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -45,25 +38,26 @@ export const Route = createFileRoute("/")({
 const ROLES = ["Video Editor", "Graphic Designer", "Social Media Manager", "Creative Strategist"];
 
 const REELS = [
-  { category: "Fashion Brand Ads", title: "Phoolini — Editorial Cut", src: fashionPhoolini.url, poster: fashionPhooliniThumb.url, accent: "#E8B4A0" },
-  { category: "Fashion Brand Ads", title: "Freestyle v2", src: fashionFreestyle.url, poster: fashionFreestyleThumb.url, accent: "#E8B4A0" },
-  { category: "Fashion Brand Ads", title: "Lookbook Film 03", src: fashionV3.url, poster: fashionV3Thumb.url, accent: "#E8B4A0" },
-  { category: "Fashion Brand Ads", title: "Lookbook Film 01 / B", src: fashionV1b.url, poster: fashionV1bThumb.url, accent: "#E8B4A0" },
-  { category: "Fashion Brand Ads", title: "Lookbook Film 01 / C", src: fashionV1c.url, poster: fashionV1cThumb.url, accent: "#E8B4A0" },
-  { category: "AI Generated Ads", title: "Swagcentral — Generative Spot", src: aiSwag.url, poster: aiSwagThumb.url, accent: "#D4A0E8" },
-  { category: "AI Generated Ads", title: "Untitled Design — Surreal Build", src: aiUntitled.url, poster: aiUntitledThumb.url, accent: "#D4A0E8" },
-  { category: "AI Generated Ads", title: "AI Reel 01", src: aiReel1.url, poster: aiReel1Thumb.url, accent: "#D4A0E8" },
-  { category: "AI Generated Ads", title: "AI Reel 02", src: aiReel2.url, poster: aiReel2Thumb.url, accent: "#D4A0E8" },
-  { category: "AI Generated Ads", title: "Ad Set 01", src: aiAdset1.url, poster: aiAdset1Thumb.url, accent: "#D4A0E8" },
-  { category: "AI Generated Ads", title: "Package — Concept Ad", src: aiPackage.url, poster: aiPackageThumb.url, accent: "#D4A0E8" },
+  { category: "Fashion", title: "Belt — Product Reel", src: vBelt.url, poster: vBelt.thumb, accent: "#E8B4A0" },
+  { category: "Jewellery", title: "Signature Jewellery Film", src: vJewellery.url, poster: vJewellery.thumb, accent: "#F5D28C" },
+  { category: "Food & Restaurant", title: "Curry King — Brand Reel", src: vCurryKing.url, poster: vCurryKing.thumb, accent: "#E8A87C" },
+  { category: "Real Estate", title: "Divine — Property Showcase", src: vDivine.url, poster: vDivine.thumb, accent: "#C8B99C" },
+  { category: "Real Estate", title: "Divine Peaks — Signature Homes", src: vDivinePeaks.url, poster: vDivinePeaks.thumb, accent: "#C8B99C" },
+  { category: "Hospitality / Travel", title: "Levelup Travels — Destination Film", src: vLevelup.url, poster: vLevelup.thumb, accent: "#9BB8C4" },
+  { category: "Social Media Campaigns", title: "Love Chahal — Brand Campaign", src: vLoveChahal.url, poster: vLoveChahal.thumb, accent: "#D4A0E8" },
+  { category: "Brand Advertisement", title: "Signature Brand Spot", src: vUntitled.url, poster: vUntitled.thumb, accent: "#C8A96A" },
+  { category: "Brand Advertisement", title: "Lifestyle — Creative Reel", src: vLifestyle.url, poster: vLifestyle.thumb, accent: "#C8A96A" },
 ];
 
 const DESIGNS = [
-  { category: "Creative Design Work", title: "Smarana", tag: "Poster Design", src: posterSmarana.url, h: "tall" },
-  { category: "Creative Design Work", title: "Plug'd — Geotag", tag: "Brand Creative", src: posterPlugd.url, h: "med" },
-  { category: "Creative Design Work", title: "Sia — Editorial", tag: "Behance Feature", src: posterSia.url, h: "tall" },
-  { category: "Creative Design Work", title: "Armchair Edit", tag: "AI Concept Poster", src: posterArmchair.url, h: "med" },
+  { category: "Creative Design Work", title: "Levelup Hotels — Deck", tag: "Brand Presentation", src: posterLevelup.url, h: "tall" },
+  { category: "Creative Design Work", title: "Logo System 01", tag: "Identity Design", src: posterLogos1.url, h: "med" },
+  { category: "Creative Design Work", title: "Logo System 02", tag: "Identity Design", src: posterLogos2.url, h: "tall" },
+  { category: "Creative Design Work", title: "Logo System 03", tag: "Identity Design", src: posterLogos3.url, h: "med" },
+  { category: "Creative Design Work", title: "Logo System 04", tag: "Identity Design", src: posterLogos4.url, h: "tall" },
+  { category: "Creative Design Work", title: "Logo System 05", tag: "Identity Design", src: posterLogos5.url, h: "med" },
 ];
+
 
 
 const BRANDS: { name: string; sub?: string; className: string }[] = [
