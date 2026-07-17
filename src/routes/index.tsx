@@ -51,13 +51,14 @@ const REELS = [
 ];
 
 const DESIGNS = [
-  { category: "Creative Design Work", title: "Levelup Hotels — Deck", tag: "Brand Presentation", src: posterLevelup.url, h: "tall" },
-  { category: "Creative Design Work", title: "Logo System 01", tag: "Identity Design", src: posterLogos1.url, h: "med" },
-  { category: "Creative Design Work", title: "Logo System 02", tag: "Identity Design", src: posterLogos2.url, h: "tall" },
-  { category: "Creative Design Work", title: "Logo System 03", tag: "Identity Design", src: posterLogos3.url, h: "med" },
-  { category: "Creative Design Work", title: "Logo System 04", tag: "Identity Design", src: posterLogos4.url, h: "tall" },
-  { category: "Creative Design Work", title: "Logo System 05", tag: "Identity Design", src: posterLogos5.url, h: "med" },
+  { category: "Hospitality Branding", title: "Hotel Escala — Campaign Poster", tag: "Print + Social", src: posterHotelEscala.url, h: "tall" },
+  { category: "Travel Marketing", title: "Levelup Travels — Destination Poster", tag: "Marketing Creative", src: posterLevelupTravels.url, h: "med" },
+  { category: "Jewellery", title: "Signature Jewellery — Editorial Poster", tag: "Luxury Creative", src: posterJewellery.url, h: "med" },
+  { category: "Corporate Branding", title: "BizBox — Brand Poster", tag: "Corporate Identity", src: posterBizbox.url, h: "tall" },
+  { category: "Service Branding", title: "Pest Control — Service Poster", tag: "Marketing Creative", src: posterPestControl.url, h: "med" },
+  { category: "Fashion / Apparel", title: "V3 — Fashion Campaign", tag: "Fashion Poster", src: posterV3.url, h: "tall" },
 ];
+
 
 
 
