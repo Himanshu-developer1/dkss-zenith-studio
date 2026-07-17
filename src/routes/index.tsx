@@ -23,13 +23,14 @@ const vLoveChahal = { url: "/videos/lovechahal.mp4", thumb: "/images/lovechahal-
 const vUntitled = { url: "/videos/untitled-design.mp4", thumb: "/images/untitled-design-thumb.jpg" };
 const vLifestyle = { url: "/videos/lifestyle-1.mp4", thumb: "/images/lifestyle-1-thumb.jpg" };
 
-// Design / poster work — from the Drive "Logos" folder
-const posterLevelup = { url: "/images/poster-levelup.png" };
-const posterLogos1 = { url: "/images/poster-logos-1.jpg" };
-const posterLogos2 = { url: "/images/poster-logos-2.png" };
-const posterLogos3 = { url: "/images/poster-logos-3.png" };
-const posterLogos4 = { url: "/images/poster-logos-4.png" };
-const posterLogos5 = { url: "/images/poster-logos-5.png" };
+// Design / poster work — real creative posters from portfolio
+const posterBizbox = { url: "/images/posters/bizbox.jpg" };
+const posterHotelEscala = { url: "/images/posters/hotel-escala.jpg" };
+const posterJewellery = { url: "/images/posters/jewellery.jpg" };
+const posterLevelupTravels = { url: "/images/posters/levelup-travels.jpg" };
+const posterPestControl = { url: "/images/posters/pestcontrol.jpg" };
+const posterV3 = { url: "/images/posters/v3.jpg" };
+
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -50,13 +51,14 @@ const REELS = [
 ];
 
 const DESIGNS = [
-  { category: "Creative Design Work", title: "Levelup Hotels — Deck", tag: "Brand Presentation", src: posterLevelup.url, h: "tall" },
-  { category: "Creative Design Work", title: "Logo System 01", tag: "Identity Design", src: posterLogos1.url, h: "med" },
-  { category: "Creative Design Work", title: "Logo System 02", tag: "Identity Design", src: posterLogos2.url, h: "tall" },
-  { category: "Creative Design Work", title: "Logo System 03", tag: "Identity Design", src: posterLogos3.url, h: "med" },
-  { category: "Creative Design Work", title: "Logo System 04", tag: "Identity Design", src: posterLogos4.url, h: "tall" },
-  { category: "Creative Design Work", title: "Logo System 05", tag: "Identity Design", src: posterLogos5.url, h: "med" },
+  { category: "Hospitality Branding", title: "Hotel Escala — Campaign Poster", tag: "Print + Social", src: posterHotelEscala.url, h: "tall" },
+  { category: "Travel Marketing", title: "Levelup Travels — Destination Poster", tag: "Marketing Creative", src: posterLevelupTravels.url, h: "med" },
+  { category: "Jewellery", title: "Signature Jewellery — Editorial Poster", tag: "Luxury Creative", src: posterJewellery.url, h: "med" },
+  { category: "Corporate Branding", title: "BizBox — Brand Poster", tag: "Corporate Identity", src: posterBizbox.url, h: "tall" },
+  { category: "Service Branding", title: "Pest Control — Service Poster", tag: "Marketing Creative", src: posterPestControl.url, h: "med" },
+  { category: "Fashion / Apparel", title: "V3 — Fashion Campaign", tag: "Fashion Poster", src: posterV3.url, h: "tall" },
 ];
+
 
 
 
@@ -75,7 +77,7 @@ const BRANDS: { name: string; sub?: string; className: string }[] = [
 const SERVICES = [
   { icon: Film, title: "Video Editing", desc: "Cinematic cuts, color grading and post production crafted to elevate every frame." },
   { icon: Palette, title: "Graphic Design", desc: "Brand identities, posters and digital design built with editorial precision." },
-  { icon: Sparkles, title: "Motion Graphics", desc: "Kinetic typography and animated brand systems that command attention." },
+  { icon: Sparkles, title: "Colour Grading / Correction", desc: "Cinematic colour grading and correction that give every frame a premium, editorial finish." },
   { icon: Share2, title: "Social Media Management", desc: "End-to-end content strategy and execution for performance driven brands." },
   { icon: Bot, title: "AI Video Creation", desc: "Next-generation visual storytelling powered by generative AI workflows." },
   { icon: Target, title: "Content Strategy", desc: "Data-led creative direction that turns audiences into loyal communities." },
