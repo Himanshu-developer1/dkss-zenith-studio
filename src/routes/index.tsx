@@ -23,13 +23,14 @@ const vLoveChahal = { url: "/videos/lovechahal.mp4", thumb: "/images/lovechahal-
 const vUntitled = { url: "/videos/untitled-design.mp4", thumb: "/images/untitled-design-thumb.jpg" };
 const vLifestyle = { url: "/videos/lifestyle-1.mp4", thumb: "/images/lifestyle-1-thumb.jpg" };
 
-// Design / poster work — from the Drive "Logos" folder
-const posterLevelup = { url: "/images/poster-levelup.png" };
-const posterLogos1 = { url: "/images/poster-logos-1.jpg" };
-const posterLogos2 = { url: "/images/poster-logos-2.png" };
-const posterLogos3 = { url: "/images/poster-logos-3.png" };
-const posterLogos4 = { url: "/images/poster-logos-4.png" };
-const posterLogos5 = { url: "/images/poster-logos-5.png" };
+// Design / poster work — real creative posters from portfolio
+const posterBizbox = { url: "/images/posters/bizbox.jpg" };
+const posterHotelEscala = { url: "/images/posters/hotel-escala.jpg" };
+const posterJewellery = { url: "/images/posters/jewellery.jpg" };
+const posterLevelupTravels = { url: "/images/posters/levelup-travels.jpg" };
+const posterPestControl = { url: "/images/posters/pestcontrol.jpg" };
+const posterV3 = { url: "/images/posters/v3.jpg" };
+
 
 export const Route = createFileRoute("/")({
   component: Index,
