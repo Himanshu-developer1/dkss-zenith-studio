@@ -77,7 +77,7 @@ const BRANDS: { name: string; sub?: string; className: string }[] = [
 const SERVICES = [
   { icon: Film, title: "Video Editing", desc: "Cinematic cuts, color grading and post production crafted to elevate every frame." },
   { icon: Palette, title: "Graphic Design", desc: "Brand identities, posters and digital design built with editorial precision." },
-  { icon: Sparkles, title: "Motion Graphics", desc: "Kinetic typography and animated brand systems that command attention." },
+  { icon: Sparkles, title: "Colour Grading / Correction", desc: "Cinematic colour grading and correction that give every frame a premium, editorial finish." },
   { icon: Share2, title: "Social Media Management", desc: "End-to-end content strategy and execution for performance driven brands." },
   { icon: Bot, title: "AI Video Creation", desc: "Next-generation visual storytelling powered by generative AI workflows." },
   { icon: Target, title: "Content Strategy", desc: "Data-led creative direction that turns audiences into loyal communities." },
