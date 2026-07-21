@@ -140,7 +140,7 @@ const EXPERIENCE = [
       "Delivered brand videography edits, podcast clips, and social reels for 4+ US clients simultaneously.",
       "Used AI tools including Sora, Veo 3, HeyGen, ElevenLabs, and Midjourney to produce AI-powered motion content and voiceover-driven videos while significantly reducing production time without compromising quality.",
     ],
-    stack: ["AI TOOLS", "FIGMA", "AFTER EFFECTS", "SOCIAL MEDIA"],
+    stack: ["AI TOOLS", "PREMIERE PRO", "AFTER EFFECTS", "SOCIAL MEDIA"],
   },
 ];
 
