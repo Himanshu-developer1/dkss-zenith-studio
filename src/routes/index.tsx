@@ -954,6 +954,84 @@ function Tools() {
   );
 }
 
+function CreativeArchive() {
+  const items = [
+    {
+      title: "AI Projects",
+      desc: "AI-generated visuals, cinematic concepts, advertising creatives, and experimental content.",
+      href: "https://drive.google.com/drive/folders/1jy2hJHgvTpOoDnzzroREigVnzqZKAH-g",
+    },
+    {
+      title: "Graphics",
+      desc: "Brand identity, social media creatives, posters, marketing campaigns, and print designs.",
+      href: "https://drive.google.com/drive/folders/1jy2hJHgvTpOoDnzzroREigVnzqZKAH-g",
+    },
+    {
+      title: "Reels",
+      desc: "Short-form videos, commercial edits, reels, motion content, and promotional campaigns.",
+      href: "https://drive.google.com/drive/folders/1jy2hJHgvTpOoDnzzroREigVnzqZKAH-g",
+    },
+  ];
+
+  return (
+    <section id="archive" className="py-32 px-6 relative">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <div className="text-xs tracking-[0.3em] text-gold mb-4">/ ARCHIVE</div>
+          <h2 className="font-display text-5xl md:text-6xl font-light mb-6">
+            Creative <span className="text-gradient-gold italic">Archive</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Explore categorized work samples including AI projects, graphic design, and short-form video content.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {items.map((item, i) => (
+            <motion.a
+              key={item.title}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              whileHover={{ y: -6 }}
+              className="group glass rounded-2xl p-8 border border-border hover:border-gold/40 transition-all duration-500 hover:shadow-[var(--shadow-gold)] flex flex-col"
+            >
+              <div className="flex items-start justify-between mb-8">
+                <div className="w-14 h-14 rounded-xl glass-gold flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <FolderOpen className="w-6 h-6 text-gold" />
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-gold group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" />
+              </div>
+              <h3 className="font-display text-2xl mb-3 group-hover:text-gold transition-colors">
+                {item.title}
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-8 flex-1">
+                {item.desc}
+              </p>
+              <div className="inline-flex items-center gap-2 text-sm font-medium text-gold">
+                Explore
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+              </div>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
 function Contact() {
   const [focused, setFocused] = useState(false);
   const links = [
