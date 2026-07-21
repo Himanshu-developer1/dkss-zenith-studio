@@ -128,17 +128,19 @@ const EXPERIENCE = [
   },
   {
     company: "Rahe Solution",
-    role: "Senior Graphic & Creative Designer (Texas, USA)",
-    year: "2024 — Present",
+    role: "Social Media Manager & Creative Lead",
+    year: "Feb 2026 — Jun 2026",
     location: "Texas, USA · Remote",
-    type: "Current · International",
-    desc: "Leading creative production for a US-based studio — designing social systems, performance ad creatives and brand collateral for real estate, wellness and home-services clients across the Texas market.",
+    type: "International",
+    desc: "Led creative production and social growth for US brands — building AI-powered content, performance creatives and short-form campaigns across hospitality, real estate and local businesses.",
     highlights: [
-      "Shipping 300+ social and ad creatives annually across 15+ US brand accounts",
-      "Maintaining a reusable Photoshop and Illustrator template library for the team",
-      "Owning the brief → revision → delivery workflow across time zones",
+      "Grew client accounts from 90 to 1,000+ followers in two months through strategic content planning",
+      "Produced short-form videos reaching 2,000+ organic views per post",
+      "Managed calendars, approvals and publishing via the RaheBoost AI platform",
+      "Delivered reels, podcast clips, brand videos and marketing creatives across multiple US accounts",
+      "Accelerated production with Sora, Veo 3, HeyGen, ElevenLabs and Midjourney",
     ],
-    stack: ["Photoshop", "Illustrator", "Figma", "After Effects"],
+    stack: ["SOCIAL MEDIA", "META ADS", "FIGMA", "AFTER EFFECTS", "AI TOOLS"],
   },
 ];
 
