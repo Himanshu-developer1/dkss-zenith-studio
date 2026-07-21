@@ -123,7 +123,6 @@ const EXPERIENCE = [
       "Edited an average of 6 videos per day including reels, paid ad creatives, and promotional content for 20+ brands including Sultana, Sleshe Jewelry, RAAS Raaseshwari, Ash Cult, and Boho Fest Lucknow.",
       "Managed 2–3 client accounts simultaneously, handling complete production cycles from brief intake to final delivery while consistently meeting deadlines.",
       "Performed colour correction/grading, kinetic typography, and branded transitions that improved viewer retention while maintaining each client's visual identity.",
-      "Produced paid ad creatives optimized for Instagram and Facebook, collaborating closely with marketing teams to align creative output with campaign objectives.",
     ],
     stack: ["PREMIERE PRO", "AFTER EFFECTS", "COLOUR GRADING", "VIDEO EDITING"],
   },
