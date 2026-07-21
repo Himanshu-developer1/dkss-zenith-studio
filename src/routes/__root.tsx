@@ -77,10 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Deepak Kumar Singh Surya — Creative Director & Visual Storyteller" },
+      { title: "Deepak Kumar Singh Surya — Video Editor • Graphic Designer • Social Media Manager" },
       { name: "description", content: "Premium portfolio of Deepak Kumar Singh Surya — video editing, graphic design, AI content and brand marketing for international and Indian brands." },
       { name: "author", content: "Deepak Kumar Singh Surya" },
-      { property: "og:title", content: "Deepak Kumar Singh Surya — Creative Director" },
+      { property: "og:title", content: "Deepak Kumar Singh Surya — Video Editor • Graphic Designer • Social Media Manager" },
       { property: "og:description", content: "Crafting visual stories that build powerful brands." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
