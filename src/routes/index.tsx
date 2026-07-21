@@ -160,6 +160,7 @@ function Index() {
       <Services />
       <Experience />
       <Tools />
+      <CreativeArchive />
       <Contact />
       <Footer />
     </div>
